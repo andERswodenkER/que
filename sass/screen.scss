@@ -53,9 +53,23 @@ section.result {
 aside.infobar {
   float: right;
   width: 33%;
-  padding: 15px;
+  padding: 15px 0;
+  position: fixed;
+  right: 10%;
+  max-width: 300px;
+  span.head_result {
+    font-size: 16px;
+  }
   img {
     max-width: 18px;
+  }
+  ul {
+    li {
+      list-style: none;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $primarycolor;
+    }
   }
 }
 
@@ -80,7 +94,7 @@ h2 {
 
 p {
   margin: 0;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 22px;
   color: $primarycolor;
 

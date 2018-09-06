@@ -474,29 +474,43 @@ section.result div.statusWrapper img {
 aside.infobar {
   float: right;
   width: 33%;
-  padding: 15px;
+  padding: 15px 0;
+  position: fixed;
+  right: 10%;
+  max-width: 300px;
 }
-/* line 57, ../sass/screen.scss */
+/* line 60, ../sass/screen.scss */
+aside.infobar span.head_result {
+  font-size: 16px;
+}
+/* line 63, ../sass/screen.scss */
 aside.infobar img {
   max-width: 18px;
 }
+/* line 67, ../sass/screen.scss */
+aside.infobar ul li {
+  list-style: none;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #3E3E40;
+}
 
-/* line 62, ../sass/screen.scss */
+/* line 76, ../sass/screen.scss */
 section.status {
   margin-top: 20px;
 }
 
-/* line 66, ../sass/screen.scss */
+/* line 80, ../sass/screen.scss */
 section.errorWrapper {
   margin-top: 20px;
   font-size: 20px;
 }
-/* line 69, ../sass/screen.scss */
+/* line 83, ../sass/screen.scss */
 section.errorWrapper img {
   max-width: 20px;
 }
 
-/* line 74, ../sass/screen.scss */
+/* line 88, ../sass/screen.scss */
 h2 {
   font-family: 'Roboto Condensed', sans-serif;
   margin: 10px 0 5px 0;
@@ -504,48 +518,48 @@ h2 {
   letter-spacing: 0.5px;
 }
 
-/* line 81, ../sass/screen.scss */
+/* line 95, ../sass/screen.scss */
 p {
   margin: 0;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 22px;
   color: #3E3E40;
 }
-/* line 87, ../sass/screen.scss */
+/* line 101, ../sass/screen.scss */
 p.error {
   color: #CD291C;
 }
-/* line 91, ../sass/screen.scss */
+/* line 105, ../sass/screen.scss */
 p.warning {
   color: #BBB72D;
 }
-/* line 95, ../sass/screen.scss */
+/* line 109, ../sass/screen.scss */
 p.check {
   color: #52B243;
 }
 
-/* line 100, ../sass/screen.scss */
+/* line 114, ../sass/screen.scss */
 a {
   color: #3E3E40;
 }
-/* line 103, ../sass/screen.scss */
+/* line 117, ../sass/screen.scss */
 a:hover {
   color: black;
 }
 
-/* line 108, ../sass/screen.scss */
+/* line 122, ../sass/screen.scss */
 div.searchWrapper {
   display: inline-block;
   text-align: center;
   width: 100%;
 }
-/* line 113, ../sass/screen.scss */
+/* line 127, ../sass/screen.scss */
 div.searchWrapper input[type="text"] {
   width: calc(90% - 12px);
   padding: 5px;
   border: 1px solid #3E3E40;
 }
-/* line 119, ../sass/screen.scss */
+/* line 133, ../sass/screen.scss */
 div.searchWrapper button {
   cursor: pointer;
   padding: 5px;
@@ -553,19 +567,19 @@ div.searchWrapper button {
   border: 1px solid #3E3E40;
 }
 
-/* line 127, ../sass/screen.scss */
+/* line 141, ../sass/screen.scss */
 footer {
   margin: 35px 0;
   text-align: center;
   font-size: 14px;
 }
 
-/* line 133, ../sass/screen.scss */
+/* line 147, ../sass/screen.scss */
 img.icon {
   vertical-align: sub;
 }
 
-/* line 137, ../sass/screen.scss */
+/* line 151, ../sass/screen.scss */
 span.head_result {
   text-transform: uppercase;
   color: #3E3E40;

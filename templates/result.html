@@ -3,45 +3,54 @@
 {% block content %}
     <aside class="infobar">
         <ul>
-        <!-- TITLE SUMMARY -->
-        <span class="head_result">Title</span>
-            {% if t_error %}
-                <p class="error">
-                    <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}>
-                    {{ t_error }}
-                    Errors
-                </p>
-            {% endif %}
-            {% if t_warnings %}
-                <p class="warning">
-                    <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}>
-                    {{ t_warnings }}
-                    Warnings
-                </p>
-            {% endif %}
-        {% if t_error == 0 and t_warnings == 0 %}
-            <p class="check"><img class="icon" src={{ url_for('static', filename='icons/check.svg') }}> check</p>
-        {% endif %}
-            <br>
-        <!-- DESCRIPTION SUMMARY -->
-            <span class="head_result">Description</span>
-            {% if d_errors %}
-                <p class="error">
-                    <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}>
-                    {{ d_errors }}
-                    Errors
-                </p>
-            {% endif %}
-            {% if d_warnings %}
-                <p class="warning">
-                    <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}>
-                    {{ d_warnings }}
-                    Warnings
-                </p>
-            {% endif %}
-            {% if d_error == 0 and d_warnings == 0 %}
-                <p class="check"><img class="icon" src={{ url_for('static', filename='icons/check.svg') }}> check</p>
-            {% endif %}
+            <li>
+                <p class="author"><span class="head_result">author</span> <br> {{ author }}</p>
+            </li>
+            <li>
+                <p class="favicon"><span class="head_result">favicon</span> <br> <img src="{{ favicon }}" alt=""></p>
+            </li>
+            <li>
+                <!-- TITLE SUMMARY -->
+                <span class="head_result">Title</span>
+                    {% if t_error %}
+                        <p class="error">
+                            <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}>
+                            {{ t_error }}
+                            Errors
+                        </p>
+                     {% endif %}
+                     {% if t_warnings %}
+                         <p class="warning">
+                             <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}>
+                             {{ t_warnings }}
+                             Warnings
+                         </p>
+                     {% endif %}
+                    {% if t_error == 0 and t_warnings == 0 %}
+                        <p class="check"><img class="icon" src={{ url_for('static', filename='icons/check.svg') }}> check</p>
+                    {% endif %}
+            </li>
+            <li>
+                <!-- DESCRIPTION SUMMARY -->
+                <span class="head_result">Description</span>
+                {% if d_errors %}
+                    <p class="error">
+                        <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}>
+                        {{ d_errors }}
+                        Errors
+                    </p>
+                {% endif %}
+                {% if d_warnings %}
+                    <p class="warning">
+                        <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}>
+                        {{ d_warnings }}
+                        Warnings
+                    </p>
+                {% endif %}
+                {% if d_error == 0 and d_warnings == 0 %}
+                    <p class="check"><img class="icon" src={{ url_for('static', filename='icons/check.svg') }}> check</p>
+                {% endif %}
+            </li>
         </ul>
     </aside>
     <section class="result">

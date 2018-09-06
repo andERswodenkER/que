@@ -39,7 +39,9 @@ def get_data():
                                t_warnings=site.title_warnings,
                                t_error=site.title_errors,
                                d_warnings=site.description_warnings,
-                               d_errors=site.description_errors
+                               d_errors=site.description_errors,
+                               author=site.author,
+                               favicon=site.favicon
                                )
 
 

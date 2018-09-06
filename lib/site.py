@@ -28,6 +28,11 @@ class Site:
         self.description_length = list()
         self.title_length = list()
 
+        self.author = ""
+        self.favicon = ""
+        self.favicon_link = ""
+
+
         # LINKS
         self.links_unsorted = list()
         for link in self.soup.find_all('a'):
@@ -54,6 +59,8 @@ class Site:
             try:
                 self.titles.append(tags.title.string)
                 self.description.append(tags.find(attrs={"name": "description"})['content'])
+                self.author = tags.find(attrs={"name": "author"})['content']
+                self.favicon = self.path + tags.find("link", rel="shortcut icon").get("href")
             except Exception as e:
                 pass
 
