@@ -18,3 +18,4 @@ six==1.11.0
 urllib5==5.0.0
 validators==0.12.2
 Werkzeug==0.14.1
+gunicorn==19.9.0
