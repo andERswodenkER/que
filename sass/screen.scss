@@ -1,0 +1,140 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import 'https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding';
+@import 'https://fonts.googleapis.com/css?family=Roboto+Condensed';
+@import "normalize";
+
+body {
+  //font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+$primarycolor: #3E3E40;
+$error: #CD291C;
+$warning: #BBB72D;
+$check: #52B243;
+
+section.content {
+  padding: 25px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+section.result {
+  display: inline-block;
+  width: 60%;
+  padding: 16px 0;
+  position: relative;
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+      display: block;
+      width: 100%;
+      padding: 15px 0;
+    }
+  }
+
+  div.statusWrapper {
+    margin-top: 16px;
+    p, span {
+      font-size: 14px;
+    }
+    img {
+      max-width: 16px;
+    }
+  }
+}
+
+aside.infobar {
+  float: right;
+  width: 33%;
+  padding: 15px;
+  img {
+    max-width: 18px;
+  }
+}
+
+section.status {
+  margin-top: 20px;
+}
+
+section.errorWrapper {
+  margin-top: 20px;
+  font-size: 20px;
+  img {
+    max-width: 20px;
+  }
+}
+
+h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  margin: 10px 0 5px 0;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
+  color: $primarycolor;
+
+  &.error {
+    color: $error;
+  }
+
+  &.warning {
+    color: $warning;
+  }
+
+  &.check {
+    color: $check;
+  }
+}
+
+a {
+  color: $primarycolor;
+
+  &:hover {
+    color: black;
+  }
+}
+
+div.searchWrapper {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+
+  input[type="text"] {
+    width: calc(90% - 12px);
+    padding: 5px;
+    border: 1px solid $primarycolor;
+  }
+
+  button {
+    cursor: pointer;
+    padding: 5px;
+    width: calc(10% - 20px);
+    border: 1px solid $primarycolor;
+  }
+}
+
+footer {
+  margin: 35px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+img.icon {
+  vertical-align: sub;
+}
+
+span.head_result {
+  text-transform: uppercase;
+  color: $primarycolor;
+}

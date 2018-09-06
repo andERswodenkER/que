@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <aside class="infobar">
+        <ul>
+        <!-- TITLE SUMMARY -->
+        <span class="head_result">Title</span>
+            {% if t_error %}
+                <p class="error">
+                    <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}>
+                    {{ t_error }}
+                    Errors
+                </p>
+            {% endif %}
+            {% if t_warnings %}
+                <p class="warning">
+                    <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}>
+                    {{ t_warnings }}
+                    Warnings
+                </p>
+            {% endif %}
+        {% if t_error == 0 and t_warnings == 0 %}
+            <p class="check"><img class="icon" src={{ url_for('static', filename='icons/check.svg') }}> check</p>
+        {% endif %}
+            <br>
+        <!-- DESCRIPTION SUMMARY -->
+            <span class="head_result">Description</span>
+            {% if d_errors %}
+                <p class="error">
+                    <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}>
+                    {{ d_errors }}
+                    Errors
+                </p>
+            {% endif %}
+            {% if d_warnings %}
+                <p class="warning">
+                    <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}>
+                    {{ d_warnings }}
+                    Warnings
+                </p>
+            {% endif %}
+            {% if d_error == 0 and d_warnings == 0 %}
+                <p class="check"><img class="icon" src={{ url_for('static', filename='icons/check.svg') }}> check</p>
+            {% endif %}
+        </ul>
+    </aside>
+    <section class="result">
+        <ul>
+        {% for title, title_length, description, description_length, link in meta %}
+            <li>
+                <a target="_blank" href="{{ link }}">{{ link }}</a>
+                <h2>{{ title }}</h2>
+                <p>{{ description }}</p>
+                <div class="statusWrapper">
+
+                <!-- TITLE LENGTH -->
+                    {% if title_length < 1 %}
+                         <p class="error"><span class="head_result">title:</span> <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}> no title found!</p>
+                    {% elif title_length >= 60 %}
+                        <p class="warning"><span class="head_result">title:</span> <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}> title is maybe to long... (<span>length: {{ title_length }}</span>)</p>
+                    {% else %}
+                        <p class="check"><span class="head_result">title:</span> <img class="icon" src={{ url_for('static', filename='icons/check.svg') }}> check (<span>length: {{ title_length }}</span>)</p>
+                    {% endif %}
+                <!-- DESCRIPTION LENGTH -->
+                    {% if description_length < 1 %}
+                         <p class="error"><span class="head_result">description:</span> <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}> no description found!</p>
+                    {% elif description_length < 130 %}
+                        <p class="warning"><span class="head_result">description:</span> <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}> description is maybe to short... (<span>length: {{ description_length }}</span>)</p>
+                    {% elif description_length >= 160 %}
+                        <p class="warning"><span class="head_result">description:</span> <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}> description is maybe to long... (<span>length: {{ description_length }}</span>)</p>
+                    {% else %}
+                        <p class="check"><span class="head_result">description</span> <img class="icon" src={{ url_for('static', filename='icons/check.svg') }}> check (<span>length: {{ description_length }}</span>)</p>
+                    {% endif %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    </section>
+
+    <section class="errorWrapper">
+        {% for error in errors %}
+            <p class="error"><img src={{ url_for('static', filename='icons/x-circle.svg') }}> {{ error }}</p>
+        {% endfor %}
+    </section>
+{% endblock %}

@@ -1,0 +1,15 @@
+<!doctype html>
+<title>QS</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='screen.css') }}">
+<section class="content">
+<div class="searchWrapper">
+    <form action="{{ url_for('get_data') }}" method="post">
+    <input type="text" name="path">
+    <button type="submit">Testen</button>
+</form>
+</div>
+  {% block content %}{% endblock %}
+</section>
+<footer>
+    by anderswodenker
+</footer>
