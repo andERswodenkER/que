@@ -51,6 +51,24 @@
                     <p class="check"><img class="icon" src={{ url_for('static', filename='icons/check.svg') }}> check</p>
                 {% endif %}
             </li>
+            <li>
+                {% if keywords %}
+                     <p class="keywords"><span class="head_result">keywords</span> <br> {{ keywords }}</p>
+                {% else %}
+                <p class="error">
+                    <span class="head_result">keywords</span> <br>
+                   <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}> no keywords found!
+                </p>
+                {% endif %}
+            </li>
+        </ul>
+        <ul class="sideinfo">
+            <li>
+                <p class="apple_title"><span class="head_result">Apple Mobile App Title</span> <br> {{ appleapptitle }}</p>
+            </li>
+            <li>
+                <p class="apple_title"><span class="head_result">Apple Mobile App Icon</span> <br> <img src="{{ appletouchicon }}" alt=""></p>
+            </li>
         </ul>
     </aside>
     <section class="result">

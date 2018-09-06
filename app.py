@@ -41,7 +41,10 @@ def get_data():
                                d_warnings=site.description_warnings,
                                d_errors=site.description_errors,
                                author=site.author,
-                               favicon=site.favicon
+                               favicon=site.favicon,
+                               appletouchicon=site.apple_touch_icon,
+                               appleapptitle=site.apple_touch_title,
+                               keywords=site.keywords
                                )
 
 

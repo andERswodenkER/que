@@ -28,9 +28,12 @@ class Site:
         self.description_length = list()
         self.title_length = list()
 
+        self.keywords = ""
+
         self.author = ""
         self.favicon = ""
-        self.favicon_link = ""
+        self.apple_touch_icon = ""
+        self.apple_touch_title = ""
 
 
         # LINKS
@@ -61,6 +64,9 @@ class Site:
                 self.description.append(tags.find(attrs={"name": "description"})['content'])
                 self.author = tags.find(attrs={"name": "author"})['content']
                 self.favicon = self.path + tags.find("link", rel="shortcut icon").get("href")
+                self.apple_touch_icon = self.path + tags.find("link", rel="apple-touch-icon").get("href")
+                self.apple_touch_title = tags.find(attrs={"name": "apple-mobile-web-app-title"})['content']
+                self.keywords = tags.find(attrs={"name": "keywords"})['content']
             except Exception as e:
                 pass
 

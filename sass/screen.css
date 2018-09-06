@@ -372,7 +372,8 @@ section.result {
       list-style: none;
       display: block;
       width: 100%;
-      padding: 15px 0; }
+      padding: 15px 0;
+      margin-bottom: 20px; }
   section.result div.statusWrapper {
     margin-top: 16px; }
     section.result div.statusWrapper p, section.result div.statusWrapper span {
@@ -384,18 +385,26 @@ aside.infobar {
   float: right;
   width: 33%;
   padding: 15px 0;
-  position: fixed;
-  right: 10%;
   max-width: 300px; }
   aside.infobar span.head_result {
     font-size: 16px; }
   aside.infobar img {
     max-width: 18px; }
-  aside.infobar ul li {
-    list-style: none;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #3E3E40; }
+  aside.infobar ul {
+    padding: 0; }
+    aside.infobar ul li {
+      list-style: none;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #3E3E40; }
+      aside.infobar ul li p {
+        margin: 3px 0; }
+      aside.infobar ul li span.head_result {
+        margin-bottom: 3px; }
+    aside.infobar ul.sideinfo {
+      margin-top: 50px; }
+      aside.infobar ul.sideinfo li p, aside.infobar ul.sideinfo li span.head_result {
+        font-size: 13px; }
 
 section.status {
   margin-top: 20px; }
@@ -453,6 +462,7 @@ img.icon {
 
 span.head_result {
   text-transform: uppercase;
-  color: #3E3E40; }
+  color: #3E3E40;
+  display: inline-block; }
 
 /*# sourceMappingURL=screen.css.map */

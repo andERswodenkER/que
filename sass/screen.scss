@@ -36,6 +36,7 @@ section.result {
       display: block;
       width: 100%;
       padding: 15px 0;
+      margin-bottom: 20px;
     }
   }
 
@@ -54,8 +55,6 @@ aside.infobar {
   float: right;
   width: 33%;
   padding: 15px 0;
-  position: fixed;
-  right: 10%;
   max-width: 300px;
   span.head_result {
     font-size: 16px;
@@ -64,11 +63,27 @@ aside.infobar {
     max-width: 18px;
   }
   ul {
+    padding: 0;
     li {
       list-style: none;
       margin-bottom: 10px;
       padding-bottom: 10px;
       border-bottom: 1px solid $primarycolor;
+      p {
+        margin: 3px 0;
+      }
+      span.head_result {
+        margin-bottom: 3px;
+      }
+    }
+    &.sideinfo {
+      margin-top: 50px;
+
+      li {
+        p, span.head_result {
+          font-size: 13px;
+        }
+      }
     }
   }
 }
@@ -151,4 +166,5 @@ img.icon {
 span.head_result {
   text-transform: uppercase;
   color: $primarycolor;
+  display: inline-block;
 }

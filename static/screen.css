@@ -456,36 +456,39 @@ section.result ul li {
   display: block;
   width: 100%;
   padding: 15px 0;
+  margin-bottom: 20px;
 }
-/* line 42, ../sass/screen.scss */
+/* line 43, ../sass/screen.scss */
 section.result div.statusWrapper {
   margin-top: 16px;
 }
-/* line 44, ../sass/screen.scss */
+/* line 45, ../sass/screen.scss */
 section.result div.statusWrapper p, section.result div.statusWrapper span {
   font-size: 14px;
 }
-/* line 47, ../sass/screen.scss */
+/* line 48, ../sass/screen.scss */
 section.result div.statusWrapper img {
   max-width: 16px;
 }
 
-/* line 53, ../sass/screen.scss */
+/* line 54, ../sass/screen.scss */
 aside.infobar {
   float: right;
   width: 33%;
   padding: 15px 0;
-  position: fixed;
-  right: 10%;
   max-width: 300px;
 }
-/* line 60, ../sass/screen.scss */
+/* line 59, ../sass/screen.scss */
 aside.infobar span.head_result {
   font-size: 16px;
 }
-/* line 63, ../sass/screen.scss */
+/* line 62, ../sass/screen.scss */
 aside.infobar img {
   max-width: 18px;
+}
+/* line 65, ../sass/screen.scss */
+aside.infobar ul {
+  padding: 0;
 }
 /* line 67, ../sass/screen.scss */
 aside.infobar ul li {
@@ -494,23 +497,39 @@ aside.infobar ul li {
   padding-bottom: 10px;
   border-bottom: 1px solid #3E3E40;
 }
+/* line 72, ../sass/screen.scss */
+aside.infobar ul li p {
+  margin: 3px 0;
+}
+/* line 75, ../sass/screen.scss */
+aside.infobar ul li span.head_result {
+  margin-bottom: 3px;
+}
+/* line 79, ../sass/screen.scss */
+aside.infobar ul.sideinfo {
+  margin-top: 50px;
+}
+/* line 83, ../sass/screen.scss */
+aside.infobar ul.sideinfo li p, aside.infobar ul.sideinfo li span.head_result {
+  font-size: 13px;
+}
 
-/* line 76, ../sass/screen.scss */
+/* line 91, ../sass/screen.scss */
 section.status {
   margin-top: 20px;
 }
 
-/* line 80, ../sass/screen.scss */
+/* line 95, ../sass/screen.scss */
 section.errorWrapper {
   margin-top: 20px;
   font-size: 20px;
 }
-/* line 83, ../sass/screen.scss */
+/* line 98, ../sass/screen.scss */
 section.errorWrapper img {
   max-width: 20px;
 }
 
-/* line 88, ../sass/screen.scss */
+/* line 103, ../sass/screen.scss */
 h2 {
   font-family: 'Roboto Condensed', sans-serif;
   margin: 10px 0 5px 0;
@@ -518,48 +537,48 @@ h2 {
   letter-spacing: 0.5px;
 }
 
-/* line 95, ../sass/screen.scss */
+/* line 110, ../sass/screen.scss */
 p {
   margin: 0;
   font-size: 15px;
   line-height: 22px;
   color: #3E3E40;
 }
-/* line 101, ../sass/screen.scss */
+/* line 116, ../sass/screen.scss */
 p.error {
   color: #CD291C;
 }
-/* line 105, ../sass/screen.scss */
+/* line 120, ../sass/screen.scss */
 p.warning {
   color: #BBB72D;
 }
-/* line 109, ../sass/screen.scss */
+/* line 124, ../sass/screen.scss */
 p.check {
   color: #52B243;
 }
 
-/* line 114, ../sass/screen.scss */
+/* line 129, ../sass/screen.scss */
 a {
   color: #3E3E40;
 }
-/* line 117, ../sass/screen.scss */
+/* line 132, ../sass/screen.scss */
 a:hover {
   color: black;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 137, ../sass/screen.scss */
 div.searchWrapper {
   display: inline-block;
   text-align: center;
   width: 100%;
 }
-/* line 127, ../sass/screen.scss */
+/* line 142, ../sass/screen.scss */
 div.searchWrapper input[type="text"] {
   width: calc(90% - 12px);
   padding: 5px;
   border: 1px solid #3E3E40;
 }
-/* line 133, ../sass/screen.scss */
+/* line 148, ../sass/screen.scss */
 div.searchWrapper button {
   cursor: pointer;
   padding: 5px;
@@ -567,20 +586,21 @@ div.searchWrapper button {
   border: 1px solid #3E3E40;
 }
 
-/* line 141, ../sass/screen.scss */
+/* line 156, ../sass/screen.scss */
 footer {
   margin: 35px 0;
   text-align: center;
   font-size: 14px;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 162, ../sass/screen.scss */
 img.icon {
   vertical-align: sub;
 }
 
-/* line 151, ../sass/screen.scss */
+/* line 166, ../sass/screen.scss */
 span.head_result {
   text-transform: uppercase;
   color: #3E3E40;
+  display: inline-block;
 }
