@@ -3,19 +3,14 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import 'https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding';
-@import 'https://fonts.googleapis.com/css?family=Roboto+Condensed';
-@import "normalize";
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import "partials/imports";
 
 body {
   //font-family: 'Nanum Gothic Coding', monospace;
   font-family: 'Roboto Condensed', sans-serif;
 }
-
-$primarycolor: #3E3E40;
-$error: #CD291C;
-$warning: #BBB72D;
-$check: #52B243;
 
 section.content {
   padding: 25px;
@@ -138,25 +133,18 @@ div.searchWrapper {
   display: inline-block;
   text-align: center;
   width: 100%;
-
-  input[type="text"] {
-    width: calc(90% - 12px);
-    padding: 5px;
-    border: 1px solid $primarycolor;
-  }
-
-  button {
-    cursor: pointer;
-    padding: 5px;
-    width: calc(10% - 20px);
-    border: 1px solid $primarycolor;
-  }
 }
 
 footer {
   margin: 35px 0;
   text-align: center;
-  font-size: 14px;
+  font-size: 11px;
+  position: fixed;
+  bottom: 0;
+  right: 13px;
+  img {
+    max-width: 13px;
+  }
 }
 
 img.icon {
@@ -168,3 +156,21 @@ span.head_result {
   color: $primarycolor;
   display: inline-block;
 }
+
+.fade-enter-active, .fade-leave-active {
+  transition: all .3s;
+  transform: scale(1);
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.spinner-fade-enter-active, .spinner-fade-leave-active {
+  transition: opacity .4s;
+}
+.spinner-fade-enter, .spinner-fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+

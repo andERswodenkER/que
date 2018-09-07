@@ -1,7 +1,5 @@
-{% extends 'base.html' %}
-
 {% block content %}
-    <aside class="infobar">
+    <aside class="infobar" v-html="bodyData">
         <ul>
             <li>
                 <p class="author"><span class="head_result">author</span> <br> {{ author }}</p>

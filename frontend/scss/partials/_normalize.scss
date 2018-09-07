@@ -367,10 +367,6 @@ button {
   line-height: normal;
   overflow: visible;
   padding: 0;
-  -webkit-appearance: button; /* for input */
-  -webkit-user-select: none; /* for button */
-  -moz-user-select: none;
-  -ms-user-select: none;
 }
 input::-moz-focus-inner,
 button::-moz-focus-inner {
@@ -385,7 +381,4 @@ button::-moz-focus-inner {
   text-align: center;
   text-decoration: none;
   white-space: pre;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
 }

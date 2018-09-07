@@ -16,7 +16,7 @@ def get_header():
 @app.route('/', methods=['POST'])
 def get_data():
     try:
-        path = validate_url(request.form['path'])
+        path = validate_url(request.get_json()['path'])
         site = Site(path)
     except HTTPError as e:
         return render_template('error.html', code=e.code, msg=e.reason)
@@ -46,8 +46,6 @@ def get_data():
                                appleapptitle=site.apple_touch_title,
                                keywords=site.keywords
                                )
-
-
 def validate_url(path):
     url = path
 

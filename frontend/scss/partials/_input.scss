@@ -1,0 +1,17 @@
+  input[type="text"] {
+    width: calc(90% - 12px);
+    padding: 5px;
+    border: 1px solid $primarycolor;
+  }
+
+  button {
+    @include transition(all .33s ease);
+    cursor: pointer;
+    padding: 5px;
+    width: calc(10% - 20px);
+    border: 1px solid $primarycolor;
+    &:hover {
+      background-color: $primarycolor;
+      color: $white;
+    }
+  }

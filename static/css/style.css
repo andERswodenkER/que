@@ -1,9 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-@import "https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding";
-@import "https://fonts.googleapis.com/css?family=Roboto+Condensed";
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -328,13 +328,7 @@ button {
   font: inherit;
   line-height: normal;
   overflow: visible;
-  padding: 0;
-  -webkit-appearance: button;
-  /* for input */
-  -webkit-user-select: none;
-  /* for button */
-  -moz-user-select: none;
-  -ms-user-select: none; }
+  padding: 0; }
 
 input::-moz-focus-inner,
 button::-moz-focus-inner {
@@ -347,10 +341,71 @@ button::-moz-focus-inner {
   display: inline-block;
   text-align: center;
   text-decoration: none;
-  white-space: pre;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none; }
+  white-space: pre; }
+
+/* In need of overwriting bitters-variables, place them here. */
+/* See: bower_components/bitters/core/variables.scss */
+/* Place individual variables here */
+.spinner {
+  margin: 100px auto 0;
+  width: 40px;
+  text-align: center; }
+
+.spinner > div {
+  width: 10px;
+  height: 10px;
+  background-color: #3E3E40;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both; }
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s; }
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s; }
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1); } }
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+div.spinnerWrapper {
+  position: absolute;
+  top: calc(13vh - 32px);
+  left: calc(50vw - 32px); }
+
+input[type="text"] {
+  width: calc(90% - 12px);
+  padding: 5px;
+  border: 1px solid #3E3E40; }
+
+button {
+  -webkit-transition: all 0.33s ease;
+  -khtml-transition: all 0.33s ease;
+  -moz-transition: all 0.33s ease;
+  -ms-transition: all 0.33s ease;
+  -o-transition: all 0.33s ease;
+  transition: all 0.33s ease;
+  cursor: pointer;
+  padding: 5px;
+  width: calc(10% - 20px);
+  border: 1px solid #3E3E40; }
+  button:hover {
+    background-color: #3E3E40;
+    color: #EDEEE9; }
 
 body {
   font-family: 'Roboto Condensed', sans-serif; }
@@ -427,11 +482,11 @@ p {
   line-height: 22px;
   color: #3E3E40; }
   p.error {
-    color: #CD291C; }
+    color: #c0392b; }
   p.warning {
-    color: #BBB72D; }
+    color: #f1c40f; }
   p.check {
-    color: #52B243; }
+    color: #27ae60; }
 
 a {
   color: #3E3E40; }
@@ -442,20 +497,16 @@ div.searchWrapper {
   display: inline-block;
   text-align: center;
   width: 100%; }
-  div.searchWrapper input[type="text"] {
-    width: calc(90% - 12px);
-    padding: 5px;
-    border: 1px solid #3E3E40; }
-  div.searchWrapper button {
-    cursor: pointer;
-    padding: 5px;
-    width: calc(10% - 20px);
-    border: 1px solid #3E3E40; }
 
 footer {
   margin: 35px 0;
   text-align: center;
-  font-size: 14px; }
+  font-size: 11px;
+  position: fixed;
+  bottom: 0;
+  right: 13px; }
+  footer img {
+    max-width: 13px; }
 
 img.icon {
   vertical-align: sub; }
@@ -465,4 +516,19 @@ span.head_result {
   color: #3E3E40;
   display: inline-block; }
 
-/*# sourceMappingURL=screen.css.map */
+.fade-enter-active, .fade-leave-active {
+  transition: all .3s;
+  transform: scale(1); }
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+  transform: scale(0.9); }
+
+.spinner-fade-enter-active, .spinner-fade-leave-active {
+  transition: opacity .4s; }
+
+.spinner-fade-enter, .spinner-fade-leave-to {
+  opacity: 0; }
+
+
+/*# sourceMappingURL=../qs/script.js.map*/
