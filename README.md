@@ -7,20 +7,20 @@ minimal frontend testing tool based on flask and vue
  - checks meta information like author, keyword, favicon
  
  
- ## install
+## install
  
- Make sure you have python on your device. Run with Python > 3.0.0
+Make sure you have python on your device. Run with Python > 3.0.0
  
- ####clone: <br>
- `git clone https://github.com/andERswodenkER/que.git`
+#### clone: <br>
+`git clone https://github.com/andERswodenkER/que.git`
  
- ####change directory: <br>
+#### change directory: <br>
 `cd que`
 
-####install requirements: <br>
+#### install requirements: <br>
 `pip install -r requirements.txt`
 
-####run: <br>
+#### run: <br>
 `python3 app.py`
 
 
