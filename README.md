@@ -29,16 +29,3 @@ Make sure you have python on your device. Run with Python > 3.0.0
 it has also a API to give your the result as json format:
 
 `127.0.0.1/get/{yourwebsiteurl}`
-
-## beware
-
-this tool scraping a website, don't spam any websites please! :)
-
-
-## feel free
-
-this is a beta version and open for anyone
-
-### sorry
-
-for my english
