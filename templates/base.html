@@ -1,15 +1,33 @@
 <!doctype html>
-<title>QS</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='screen.css') }}">
-<section class="content">
-<div class="searchWrapper">
-    <form action="{{ url_for('get_data') }}" method="post">
-    <input type="text" name="path">
-    <button type="submit">Testen</button>
-</form>
-</div>
-  {% block content %}{% endblock %}
+<head>
+    <title>QS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<section class="content" id="app">
+    <div class="searchWrapper">
+        <form action="/">
+            <input type="text" v-model="path" name="path" placeholder="website">
+            <button id="button" v-on:click.prevent="post">test</button>
+        </form>
+    </div>
+    <transition name="spinner-fade">
+    <div class="spinnerWrapper" v-if="loading">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    </transition>
+    <transition name="fade">
+        <div class="content" v-html="resultData" v-if="show">
+           {{ """{{ resultData }}""" |safe}}
+         </div>
+    </transition>
 </section>
 <footer>
-    by anderswodenker
+    <img class="icon" src="{{ url_for('static', filename='icons/gift.svg') }}" alt=""> by anderswodenker
 </footer>
+<script async src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
