@@ -1,0 +1,26 @@
+body {
+  //font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+section.content {
+  padding: 25px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+section.status {
+  margin-top: 20px;
+}
+
+section.errorWrapper {
+  margin-top: 20px;
+  font-size: 20px;
+  img {
+    max-width: 20px;
+  }
+}
+
+img.icon {
+  vertical-align: sub;
+}

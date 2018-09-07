@@ -1,0 +1,39 @@
+h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  margin: 10px 0 5px 0;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 22px;
+  color: $primarycolor;
+
+  &.error {
+    color: $error;
+  }
+
+  &.warning {
+    color: $warning;
+  }
+
+  &.check {
+    color: $check;
+  }
+}
+
+a {
+  color: $primarycolor;
+
+  &:hover {
+    color: black;
+  }
+}
+
+span.head_title {
+  text-transform: uppercase;
+  color: $primarycolor;
+  display: inline-block;
+}

@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from flask import jsonify
 from lib.site import Site
 from urllib.error import URLError, HTTPError
 from urllib.parse import urlparse
@@ -46,6 +47,37 @@ def get_data():
                                appleapptitle=site.apple_touch_title,
                                keywords=site.keywords
                                )
+
+
+@app.route('/get/<path>')
+def api(path):
+    try:
+        url = validate_url(path)
+        site = Site(url)
+        data = jsonify(
+            author=site.author,
+            path=path,
+            sites=site.links,
+            titles=site.titles,
+            title_length=site.title_length,
+            title_warning=site.title_warnings,
+            title_error=site.title_errors,
+            description=site.description,
+            description_length=site.description_length,
+            description_warnings=site.description_warnings,
+            description_erros=site.description_errors,
+            favicon=site.favicon,
+            apple_touch_icon=site.apple_touch_icon,
+            apple_touch_title=site.apple_touch_title,
+            keywords=site.keywords
+        )
+
+        return data
+
+    except Exception as e:
+        return print("Es ist ein Fehler aufgetreten: {0}".format(e))
+
+
 def validate_url(path):
     url = path
 

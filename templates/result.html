@@ -2,14 +2,14 @@
     <aside class="infobar" v-html="bodyData">
         <ul>
             <li>
-                <p class="author"><span class="head_result">author</span> <br> {{ author }}</p>
+                <p class="author"><span class="head_title">author</span> <br> {{ author }}</p>
             </li>
             <li>
-                <p class="favicon"><span class="head_result">favicon</span> <br> <img src="{{ favicon }}" alt=""></p>
+                <p class="favicon"><span class="head_title">favicon</span> <br> <img src="{{ favicon }}" alt=""></p>
             </li>
             <li>
                 <!-- TITLE SUMMARY -->
-                <span class="head_result">Title</span>
+                <span class="head_title">Title</span>
                     {% if t_error %}
                         <p class="error">
                             <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}>
@@ -30,7 +30,7 @@
             </li>
             <li>
                 <!-- DESCRIPTION SUMMARY -->
-                <span class="head_result">Description</span>
+                <span class="head_title">Description</span>
                 {% if d_errors %}
                     <p class="error">
                         <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}>
@@ -51,10 +51,10 @@
             </li>
             <li>
                 {% if keywords %}
-                     <p class="keywords"><span class="head_result">keywords</span> <br> {{ keywords }}</p>
+                     <p class="keywords"><span class="head_title">keywords</span> <br> {{ keywords }}</p>
                 {% else %}
                 <p class="error">
-                    <span class="head_result">keywords</span> <br>
+                    <span class="head_title">keywords</span> <br>
                    <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}> no keywords found!
                 </p>
                 {% endif %}
@@ -62,10 +62,10 @@
         </ul>
         <ul class="sideinfo">
             <li>
-                <p class="apple_title"><span class="head_result">Apple Mobile App Title</span> <br> {{ appleapptitle }}</p>
+                <p class="apple_title"><span class="head_title">Apple Mobile App Title</span> <br> {{ appleapptitle }}</p>
             </li>
             <li>
-                <p class="apple_title"><span class="head_result">Apple Mobile App Icon</span> <br> <img src="{{ appletouchicon }}" alt=""></p>
+                <p class="apple_title"><span class="head_title">Apple Mobile App Icon</span> <br> <img src="{{ appletouchicon }}" alt=""></p>
             </li>
         </ul>
     </aside>
@@ -80,21 +80,21 @@
 
                 <!-- TITLE LENGTH -->
                     {% if title_length < 1 %}
-                         <p class="error"><span class="head_result">title:</span> <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}> no title found!</p>
+                         <p class="error"><span class="head_title">title:</span> <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}> no title found!</p>
                     {% elif title_length >= 60 %}
-                        <p class="warning"><span class="head_result">title:</span> <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}> title is maybe to long... (<span>length: {{ title_length }}</span>)</p>
+                        <p class="warning"><span class="head_title">title:</span> <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}> title is maybe to long... (<span>length: {{ title_length }}</span>)</p>
                     {% else %}
-                        <p class="check"><span class="head_result">title:</span> <img class="icon" src={{ url_for('static', filename='icons/check.svg') }}> check (<span>length: {{ title_length }}</span>)</p>
+                        <p class="check"><span class="head_title">title:</span> <img class="icon" src={{ url_for('static', filename='icons/check.svg') }}> check (<span>length: {{ title_length }}</span>)</p>
                     {% endif %}
                 <!-- DESCRIPTION LENGTH -->
                     {% if description_length < 1 %}
-                         <p class="error"><span class="head_result">description:</span> <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}> no description found!</p>
+                         <p class="error"><span class="head_title">description:</span> <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}> no description found!</p>
                     {% elif description_length < 130 %}
-                        <p class="warning"><span class="head_result">description:</span> <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}> description is maybe to short... (<span>length: {{ description_length }}</span>)</p>
+                        <p class="warning"><span class="head_title">description:</span> <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}> description is maybe to short... (<span>length: {{ description_length }}</span>)</p>
                     {% elif description_length >= 160 %}
-                        <p class="warning"><span class="head_result">description:</span> <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}> description is maybe to long... (<span>length: {{ description_length }}</span>)</p>
+                        <p class="warning"><span class="head_title">description:</span> <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}> description is maybe to long... (<span>length: {{ description_length }}</span>)</p>
                     {% else %}
-                        <p class="check"><span class="head_result">description</span> <img class="icon" src={{ url_for('static', filename='icons/check.svg') }}> check (<span>length: {{ description_length }}</span>)</p>
+                        <p class="check"><span class="head_title">description</span> <img class="icon" src={{ url_for('static', filename='icons/check.svg') }}> check (<span>length: {{ description_length }}</span>)</p>
                     {% endif %}
                 </div>
             </li>

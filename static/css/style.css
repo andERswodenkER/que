@@ -346,6 +346,48 @@ button::-moz-focus-inner {
 /* In need of overwriting bitters-variables, place them here. */
 /* See: bower_components/bitters/core/variables.scss */
 /* Place individual variables here */
+h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  margin: 10px 0 5px 0;
+  font-size: 18px;
+  letter-spacing: 0.5px; }
+
+p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 22px;
+  color: #3E3E40; }
+  p.error {
+    color: #c0392b; }
+  p.warning {
+    color: #c79a00; }
+  p.check {
+    color: #27ae60; }
+
+a {
+  color: #3E3E40; }
+  a:hover {
+    color: black; }
+
+span.head_title {
+  text-transform: uppercase;
+  color: #3E3E40;
+  display: inline-block; }
+
+.fade-enter-active, .fade-leave-active {
+  transition: all .3s;
+  transform: scale(1); }
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+  transform: scale(0.9); }
+
+.spinner-fade-enter-active, .spinner-fade-leave-active {
+  transition: opacity .4s; }
+
+.spinner-fade-enter, .spinner-fade-leave-to {
+  opacity: 0; }
+
 .spinner {
   margin: 100px auto 0;
   width: 40px;
@@ -415,6 +457,48 @@ section.content {
   width: 80%;
   margin: 0 auto; }
 
+section.status {
+  margin-top: 20px; }
+
+section.errorWrapper {
+  margin-top: 20px;
+  font-size: 20px; }
+  section.errorWrapper img {
+    max-width: 20px; }
+
+img.icon {
+  vertical-align: sub; }
+
+div.searchWrapper {
+  display: inline-block;
+  text-align: center;
+  width: 100%; }
+
+aside.infobar {
+  float: right;
+  width: 33%;
+  padding: 15px 0;
+  max-width: 300px; }
+  aside.infobar span.head_title {
+    font-size: 16px; }
+  aside.infobar img {
+    max-width: 18px; }
+  aside.infobar ul {
+    padding: 0; }
+    aside.infobar ul li {
+      list-style: none;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #3E3E40; }
+      aside.infobar ul li p {
+        margin: 3px 0; }
+      aside.infobar ul li span.head_title {
+        margin-bottom: 3px; }
+    aside.infobar ul.sideinfo {
+      margin-top: 50px; }
+      aside.infobar ul.sideinfo li p, aside.infobar ul.sideinfo li span.head_title {
+        font-size: 13px; }
+
 section.result {
   display: inline-block;
   width: 60%;
@@ -436,68 +520,6 @@ section.result {
     section.result div.statusWrapper img {
       max-width: 16px; }
 
-aside.infobar {
-  float: right;
-  width: 33%;
-  padding: 15px 0;
-  max-width: 300px; }
-  aside.infobar span.head_result {
-    font-size: 16px; }
-  aside.infobar img {
-    max-width: 18px; }
-  aside.infobar ul {
-    padding: 0; }
-    aside.infobar ul li {
-      list-style: none;
-      margin-bottom: 10px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #3E3E40; }
-      aside.infobar ul li p {
-        margin: 3px 0; }
-      aside.infobar ul li span.head_result {
-        margin-bottom: 3px; }
-    aside.infobar ul.sideinfo {
-      margin-top: 50px; }
-      aside.infobar ul.sideinfo li p, aside.infobar ul.sideinfo li span.head_result {
-        font-size: 13px; }
-
-section.status {
-  margin-top: 20px; }
-
-section.errorWrapper {
-  margin-top: 20px;
-  font-size: 20px; }
-  section.errorWrapper img {
-    max-width: 20px; }
-
-h2 {
-  font-family: 'Roboto Condensed', sans-serif;
-  margin: 10px 0 5px 0;
-  font-size: 18px;
-  letter-spacing: 0.5px; }
-
-p {
-  margin: 0;
-  font-size: 15px;
-  line-height: 22px;
-  color: #3E3E40; }
-  p.error {
-    color: #c0392b; }
-  p.warning {
-    color: #f1c40f; }
-  p.check {
-    color: #27ae60; }
-
-a {
-  color: #3E3E40; }
-  a:hover {
-    color: black; }
-
-div.searchWrapper {
-  display: inline-block;
-  text-align: center;
-  width: 100%; }
-
 footer {
   margin: 35px 0;
   text-align: center;
@@ -507,28 +529,6 @@ footer {
   right: 13px; }
   footer img {
     max-width: 13px; }
-
-img.icon {
-  vertical-align: sub; }
-
-span.head_result {
-  text-transform: uppercase;
-  color: #3E3E40;
-  display: inline-block; }
-
-.fade-enter-active, .fade-leave-active {
-  transition: all .3s;
-  transform: scale(1); }
-
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-  transform: scale(0.9); }
-
-.spinner-fade-enter-active, .spinner-fade-leave-active {
-  transition: opacity .4s; }
-
-.spinner-fade-enter, .spinner-fade-leave-to {
-  opacity: 0; }
 
 
 /*# sourceMappingURL=../qs/script.js.map*/
