@@ -3,11 +3,8 @@ aside.infobar {
   width: 33%;
   padding: 15px 0;
   max-width: 300px;
-  span.head_title {
-    font-size: 16px;
-  }
   img {
-    max-width: 18px;
+    max-width: 13px;
   }
   ul {
     padding: 0;
@@ -15,22 +12,16 @@ aside.infobar {
       list-style: none;
       margin-bottom: 10px;
       padding-bottom: 10px;
-      border-bottom: 1px solid $primarycolor;
-      p {
-        margin: 3px 0;
+      p, span.head_title {
+          font-size: 13px;
       }
       span.head_title {
         margin-bottom: 3px;
+        text-align: left;
       }
     }
     &.sideinfo {
       margin-top: 50px;
-
-      li {
-        p, span.head_title {
-          font-size: 13px;
-        }
-      }
     }
   }
 }

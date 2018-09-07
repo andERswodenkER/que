@@ -10,18 +10,6 @@ p {
   font-size: 15px;
   line-height: 22px;
   color: $primarycolor;
-
-  &.error {
-    color: $error;
-  }
-
-  &.warning {
-    color: $warning;
-  }
-
-  &.check {
-    color: $check;
-  }
 }
 
 a {
@@ -33,7 +21,20 @@ a {
 }
 
 span.head_title {
+  font-family: 'Nanum Gothic Coding', monospace;
   text-transform: uppercase;
   color: $primarycolor;
   display: inline-block;
+}
+
+.error {
+  color: $error;
+}
+
+.warning {
+  color: $warning;
+}
+
+.check {
+  color: $check;
 }

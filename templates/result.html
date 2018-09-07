@@ -12,20 +12,20 @@
                 <span class="head_title">Title</span>
                     {% if t_error %}
                         <p class="error">
-                            <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}>
+                            <i class="icon icon-x-circle"></i>
                             {{ t_error }}
                             Errors
                         </p>
                      {% endif %}
                      {% if t_warnings %}
                          <p class="warning">
-                             <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}>
+                             <i class="icon icon-alert-triangle"></i>
                              {{ t_warnings }}
                              Warnings
                          </p>
                      {% endif %}
                     {% if t_error == 0 and t_warnings == 0 %}
-                        <p class="check"><img class="icon" src={{ url_for('static', filename='icons/check.svg') }}> check</p>
+                        <p class="check"><i class="icon icon-check"></i> check</p>
                     {% endif %}
             </li>
             <li>
@@ -33,20 +33,20 @@
                 <span class="head_title">Description</span>
                 {% if d_errors %}
                     <p class="error">
-                        <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}>
+                         <i class="icon icon-x-circle"></i>
                         {{ d_errors }}
                         Errors
                     </p>
                 {% endif %}
                 {% if d_warnings %}
                     <p class="warning">
-                        <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}>
+                        <i class="icon icon-alert-triangle"></i>
                         {{ d_warnings }}
                         Warnings
                     </p>
                 {% endif %}
                 {% if d_error == 0 and d_warnings == 0 %}
-                    <p class="check"><img class="icon" src={{ url_for('static', filename='icons/check.svg') }}> check</p>
+                    <p class="check"><i class="icon icon-check"></i> check</p>
                 {% endif %}
             </li>
             <li>
@@ -55,7 +55,7 @@
                 {% else %}
                 <p class="error">
                     <span class="head_title">keywords</span> <br>
-                   <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}> no keywords found!
+                   <i class="icon icon-x-circle"></i> no keywords found!
                 </p>
                 {% endif %}
             </li>
@@ -80,21 +80,21 @@
 
                 <!-- TITLE LENGTH -->
                     {% if title_length < 1 %}
-                         <p class="error"><span class="head_title">title:</span> <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}> no title found!</p>
+                         <p class="error"><span class="head_title">title:</span> <i class="icon icon-x-circle"></i> no title found!</p>
                     {% elif title_length >= 60 %}
-                        <p class="warning"><span class="head_title">title:</span> <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}> title is maybe to long... (<span>length: {{ title_length }}</span>)</p>
+                        <p class="warning"><span class="head_title">title:</span> <i class="icon icon-alert-triangle"></i> title is maybe to long... (<span>length: {{ title_length }}</span>)</p>
                     {% else %}
-                        <p class="check"><span class="head_title">title:</span> <img class="icon" src={{ url_for('static', filename='icons/check.svg') }}> check (<span>length: {{ title_length }}</span>)</p>
+                        <p class="check"><span class="head_title">title:</span> <i class="icon icon-check"></i> check (<span>length: {{ title_length }}</span>)</p>
                     {% endif %}
                 <!-- DESCRIPTION LENGTH -->
                     {% if description_length < 1 %}
-                         <p class="error"><span class="head_title">description:</span> <img class="icon" src={{ url_for('static', filename='icons/x-circle.svg') }}> no description found!</p>
+                         <p class="error"><span class="head_title">description:</span> <i class="icon icon-x-circle"></i> no description found!</p>
                     {% elif description_length < 130 %}
-                        <p class="warning"><span class="head_title">description:</span> <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}> description is maybe to short... (<span>length: {{ description_length }}</span>)</p>
+                        <p class="warning"><span class="head_title">description:</span> <i class="icon icon-alert-triangle"></i> description is maybe to short... (<span>length: {{ description_length }}</span>)</p>
                     {% elif description_length >= 160 %}
-                        <p class="warning"><span class="head_title">description:</span> <img class="icon" src={{ url_for('static', filename='icons/alert-triangle.svg') }}> description is maybe to long... (<span>length: {{ description_length }}</span>)</p>
+                        <p class="warning"><span class="head_title">description:</span> <i class="icon icon-alert-triangle"></i> description is maybe to long... (<span>length: {{ description_length }}</span>)</p>
                     {% else %}
-                        <p class="check"><span class="head_title">description</span> <img class="icon" src={{ url_for('static', filename='icons/check.svg') }}> check (<span>length: {{ description_length }}</span>)</p>
+                        <p class="check"><span class="head_title">description</span> <i class="icon icon-check"></i> check (<span>length: {{ description_length }}</span>)</p>
                     {% endif %}
                 </div>
             </li>
