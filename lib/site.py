@@ -35,6 +35,7 @@ class Site:
         self.apple_touch_icon = ""
         self.apple_touch_title = ""
 
+        self.image_alt_error_links_unsorted = list()
         self.image_alt_error_links = list()
         self.image_alt_error_counter = 0
 
@@ -79,10 +80,11 @@ class Site:
 
         for errors in self.soups:
             for img in errors.find_all('img', alt=False):
-                self.image_alt_error_links.append(self.path + img['src'])
+                self.image_alt_error_links_unsorted.append(self.path + img['src'])
             for comments in errors.find_all(string=lambda text: isinstance(text, Comment)):
                 self.comments_unsorted.append(comments)
 
+        self.image_alt_error_links = sorted(set(self.image_alt_error_links_unsorted), key=self.image_alt_error_links_unsorted.index)
         self.comments = sorted(set(self.comments_unsorted), key=self.comments_unsorted.index)
         self.image_alt_error_counter = len(self.image_alt_error_links)
         self.comments_counter = len(self.comments)
