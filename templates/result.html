@@ -1,5 +1,5 @@
 {% block content %}
-    <aside class="infobar" v-html="bodyData">
+    <aside class="infobar" v-html="bodyData" id="infobar">
         <ul>
             <li>
                 <p class="author"><span class="head_title">author</span> <br> {{ author }}</p>
@@ -10,30 +10,30 @@
             <li>
                 <!-- TITLE SUMMARY -->
                 <span class="head_title">Title</span>
-                    {% if t_error %}
-                        <p class="error">
-                            <i class="icon icon-x-circle"></i>
-                            {{ t_error }}
-                            Errors
-                        </p>
-                     {% endif %}
-                     {% if t_warnings %}
-                         <p class="warning">
-                             <i class="icon icon-alert-triangle"></i>
-                             {{ t_warnings }}
-                             Warnings
-                         </p>
-                     {% endif %}
-                    {% if t_error == 0 and t_warnings == 0 %}
-                        <p class="check"><i class="icon icon-check"></i> check</p>
-                    {% endif %}
+                {% if t_error %}
+                    <p class="error">
+                        <i class="icon icon-x-circle"></i>
+                        {{ t_error }}
+                        Errors
+                    </p>
+                {% endif %}
+                {% if t_warnings %}
+                    <p class="warning">
+                        <i class="icon icon-alert-triangle"></i>
+                        {{ t_warnings }}
+                        Warnings
+                    </p>
+                {% endif %}
+                {% if t_error == 0 and t_warnings == 0 %}
+                    <p class="check"><i class="icon icon-check"></i> check</p>
+                {% endif %}
             </li>
             <li>
                 <!-- DESCRIPTION SUMMARY -->
                 <span class="head_title">Description</span>
                 {% if d_errors %}
                     <p class="error">
-                         <i class="icon icon-x-circle"></i>
+                        <i class="icon icon-x-circle"></i>
                         {{ d_errors }}
                         Errors
                     </p>
@@ -51,15 +51,54 @@
             </li>
             <li>
                 {% if keywords %}
-                     <p class="keywords"><span class="head_title">keywords</span> <br> {{ keywords }}</p>
+                    <p class="keywords"><span class="head_title">keywords</span> <br> {{ keywords }}</p>
                 {% else %}
-                <p class="error">
-                    <span class="head_title">keywords</span> <br>
-                   <i class="icon icon-x-circle"></i> no keywords found!
-                </p>
+                    <p class="warning">
+                        <span class="head_title">keywords</span> <br>
+                        <i class="icon icon-alert-triangle"></i> no keywords found
+                    </p>
                 {% endif %}
             </li>
         </ul>
+        <!-- IMAGE ERROR -->
+        {% if alt_errors %}
+            <ul class="sideInfo">
+                <li>
+                    <p class="error"><span class="head_title">Images</span> <br>
+                        <i class="icon icon-x-circle"></i> {{ alt_errors }} Images without alt Attribute</p>
+                </li>
+                <li>
+                    <div class="scrollWrapper">
+                        <ul class="link_list">
+                            {% for link in alt_links %}
+                                <li><a href="{{ link }}">{{ link }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        {% endif %}
+
+        <!-- COMMENT ERROR -->
+        {% if comments %}
+            <ul class="sideinfo">
+                <li>
+                    <p class="warning">
+                        <span class="head_title">Comments</span> <br>
+                        <i class="icon icon-alert-triangle"></i> {{ comments_counter }} comments found
+                    </p>
+                </li>
+                <li>
+                    <div class="scrollWrapper">
+                        <ul class="comment">
+                            {% for comment in comments %}
+                                <li>{{ comment }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        {% endif %}
         <ul class="sideinfo">
             <li>
                 <p class="apple_title"><span class="head_title">Apple Mobile App Title</span> <br> {{ appleapptitle }}</p>
@@ -71,35 +110,35 @@
     </aside>
     <section class="result">
         <ul>
-        {% for title, title_length, description, description_length, link in meta %}
-            <li>
-                <a target="_blank" href="{{ link }}">{{ link }}</a>
-                <h2>{{ title }}</h2>
-                <p>{{ description }}</p>
-                <div class="statusWrapper">
+            {% for title, title_length, description, description_length, link in meta %}
+                <li>
+                    <a target="_blank" href="{{ link }}">{{ link }}</a>
+                    <h2>{{ title }}</h2>
+                    <p>{{ description }}</p>
+                    <div class="statusWrapper">
 
-                <!-- TITLE LENGTH -->
-                    {% if title_length < 1 %}
-                         <p class="error"><span class="head_title">title:</span> <i class="icon icon-x-circle"></i> no title found!</p>
-                    {% elif title_length >= 60 %}
-                        <p class="warning"><span class="head_title">title:</span> <i class="icon icon-alert-triangle"></i> title is maybe to long... (<span>length: {{ title_length }}</span>)</p>
-                    {% else %}
-                        <p class="check"><span class="head_title">title:</span> <i class="icon icon-check"></i> check (<span>length: {{ title_length }}</span>)</p>
-                    {% endif %}
-                <!-- DESCRIPTION LENGTH -->
-                    {% if description_length < 1 %}
-                         <p class="error"><span class="head_title">description:</span> <i class="icon icon-x-circle"></i> no description found!</p>
-                    {% elif description_length < 130 %}
-                        <p class="warning"><span class="head_title">description:</span> <i class="icon icon-alert-triangle"></i> description is maybe to short... (<span>length: {{ description_length }}</span>)</p>
-                    {% elif description_length >= 160 %}
-                        <p class="warning"><span class="head_title">description:</span> <i class="icon icon-alert-triangle"></i> description is maybe to long... (<span>length: {{ description_length }}</span>)</p>
-                    {% else %}
-                        <p class="check"><span class="head_title">description</span> <i class="icon icon-check"></i> check (<span>length: {{ description_length }}</span>)</p>
-                    {% endif %}
-                </div>
-            </li>
-        {% endfor %}
-    </ul>
+                        <!-- TITLE LENGTH -->
+                        {% if title_length < 1 %}
+                            <p class="error"><span class="head_title">title:</span> <i class="icon icon-x-circle"></i> no title found!</p>
+                        {% elif title_length >= 60 %}
+                            <p class="warning"><span class="head_title">title:</span> <i class="icon icon-alert-triangle"></i> title is maybe to long... (<span>length: {{ title_length }}</span>)</p>
+                        {% else %}
+                            <p class="check"><span class="head_title">title:</span> <i class="icon icon-check"></i> check (<span>length: {{ title_length }}</span>)</p>
+                        {% endif %}
+                        <!-- DESCRIPTION LENGTH -->
+                        {% if description_length < 1 %}
+                            <p class="error"><span class="head_title">description:</span> <i class="icon icon-x-circle"></i> no description found!</p>
+                        {% elif description_length < 130 %}
+                            <p class="warning"><span class="head_title">description:</span> <i class="icon icon-alert-triangle"></i> description is maybe to short... (<span>length: {{ description_length }}</span>)</p>
+                        {% elif description_length >= 160 %}
+                            <p class="warning"><span class="head_title">description:</span> <i class="icon icon-alert-triangle"></i> description is maybe to long... (<span>length: {{ description_length }}</span>)</p>
+                        {% else %}
+                            <p class="check"><span class="head_title">description</span> <i class="icon icon-check"></i> check (<span>length: {{ description_length }}</span>)</p>
+                        {% endif %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
     </section>
 
     <section class="errorWrapper">

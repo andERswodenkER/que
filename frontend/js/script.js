@@ -31,5 +31,6 @@ var app = new Vue({
             }, response => {
                 console.log("error");
             });
-        }}
+        }
+    }
 });

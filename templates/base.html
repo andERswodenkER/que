@@ -1,13 +1,13 @@
 <!doctype html>
 <head>
-    <title>QS</title>
+    <title>QUE</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 <section class="content" id="app">
     <div class="searchWrapper">
         <form action="/">
-            <input type="text" v-model="path" name="path" placeholder="website">
+            <input required type="text" v-model="path" name="path" placeholder="website">
             <button id="button" v-on:click.prevent="post">test</button>
         </form>
     </div>

@@ -45,7 +45,11 @@ def get_data():
                                favicon=site.favicon,
                                appletouchicon=site.apple_touch_icon,
                                appleapptitle=site.apple_touch_title,
-                               keywords=site.keywords
+                               keywords=site.keywords,
+                               alt_links=site.image_alt_error_links,
+                               alt_errors=site.image_alt_error_counter,
+                               comments=site.comments,
+                               comments_counter=site.comments_counter,
                                )
 
 

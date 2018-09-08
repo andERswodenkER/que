@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Comment
 from urllib.request import urlopen
 
 
@@ -35,6 +35,12 @@ class Site:
         self.apple_touch_icon = ""
         self.apple_touch_title = ""
 
+        self.image_alt_error_links = list()
+        self.image_alt_error_counter = 0
+
+        self.comments = list()
+        self.comments_unsorted = list()
+        self.comments_counter = 0
 
         # LINKS
         self.links_unsorted = list()
@@ -67,8 +73,19 @@ class Site:
                 self.apple_touch_icon = self.path + tags.find("link", rel="apple-touch-icon").get("href")
                 self.apple_touch_title = tags.find(attrs={"name": "apple-mobile-web-app-title"})['content']
                 self.keywords = tags.find(attrs={"name": "keywords"})['content']
+
             except Exception as e:
                 pass
+
+        for errors in self.soups:
+            for img in errors.find_all('img', alt=False):
+                self.image_alt_error_links.append(self.path + img['src'])
+            for comments in errors.find_all(string=lambda text: isinstance(text, Comment)):
+                self.comments_unsorted.append(comments)
+
+        self.comments = sorted(set(self.comments_unsorted), key=self.comments_unsorted.index)
+        self.image_alt_error_counter = len(self.image_alt_error_links)
+        self.comments_counter = len(self.comments)
 
         # GET DESCRIPTION LENGTH
         for description in self.description:

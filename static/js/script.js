@@ -146,7 +146,8 @@ var app = new _vue2.default({
             }, function (response) {
                 console.log("error");
             });
-        } }
+        }
+    }
 });
 
 /***/ }),

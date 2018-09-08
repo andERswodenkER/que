@@ -1,7 +1,6 @@
 aside.infobar {
   float: right;
-  width: 33%;
-  padding: 15px 0;
+  padding: 15px 25px;
   max-width: 300px;
   img {
     max-width: 13px;
@@ -13,7 +12,7 @@ aside.infobar {
       margin-bottom: 10px;
       padding-bottom: 10px;
       p, span.head_title {
-          font-size: 13px;
+        font-size: 13px;
       }
       span.head_title {
         margin-bottom: 3px;
@@ -22,6 +21,26 @@ aside.infobar {
     }
     &.sideinfo {
       margin-top: 50px;
+    }
+  }
+
+  div.scrollWrapper {
+    overflow: scroll;
+    height: 300px;
+  }
+
+  ul.link_list {
+    font-size: 13px;
+    max-height: 300px;
+  }
+
+  ul.comment {
+    font-size: 13px;
+    height: 300px;
+    overflow: scroll;
+    list-style: disc;
+    li {
+      font-style: italic;
     }
   }
 }
