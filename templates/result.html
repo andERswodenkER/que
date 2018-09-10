@@ -78,6 +78,26 @@
                 </li>
             </ul>
         {% endif %}
+    <!-- todos -->
+            {% if todos %}
+            <ul class="sideinfo">
+                <li>
+                    <p class="error">
+                        <span class="head_title">Todos</span> <br>
+                        <i class="icon icon-x-circle"></i> {{ todos_counter }} todos found
+                    </p>
+                </li>
+                <li>
+                    <div class="scrollWrapper">
+                        <ul class="todo">
+                            {% for todo in todos %}
+                                <li>{{ todo }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        {% endif %}
 
         <!-- COMMENT ERROR -->
         {% if comments %}

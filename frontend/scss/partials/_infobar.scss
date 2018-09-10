@@ -1,3 +1,10 @@
+%scrollList {
+  font-size: 13px;
+  overflow: scroll;
+  max-height: 120px;
+  padding-left: 5px;
+}
+
 aside.infobar {
   float: right;
   padding: 15px 25px;
@@ -24,23 +31,21 @@ aside.infobar {
     }
   }
 
-  div.scrollWrapper {
-    overflow: scroll;
-    height: 300px;
-  }
-
   ul.link_list {
-    font-size: 13px;
-    max-height: 300px;
+    @extend %scrollList;
   }
 
   ul.comment {
-    font-size: 13px;
-    height: 300px;
-    overflow: scroll;
-    list-style: disc;
+    @extend %scrollList;
     li {
       font-style: italic;
+    }
+  }
+
+  ul.todo {
+    @extend %scrollList;
+    li {
+      color: $error;
     }
   }
 }

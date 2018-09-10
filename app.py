@@ -50,6 +50,8 @@ def get_data():
                                alt_errors=site.image_alt_error_counter,
                                comments=site.comments,
                                comments_counter=site.comments_counter,
+                               todos=site.todo,
+                               todos_counter=site.todo_counter
                                )
 
 

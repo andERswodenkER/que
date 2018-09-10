@@ -1307,6 +1307,12 @@ div.searchWrapper {
   text-align: center;
   width: 100%; }
 
+aside.infobar ul.link_list, aside.infobar ul.comment, aside.infobar ul.todo {
+  font-size: 13px;
+  overflow: scroll;
+  max-height: 120px;
+  padding-left: 5px; }
+
 aside.infobar {
   float: right;
   padding: 15px 25px;
@@ -1326,19 +1332,10 @@ aside.infobar {
         text-align: left; }
     aside.infobar ul.sideinfo {
       margin-top: 50px; }
-  aside.infobar div.scrollWrapper {
-    overflow: scroll;
-    height: 300px; }
-  aside.infobar ul.link_list {
-    font-size: 13px;
-    max-height: 300px; }
-  aside.infobar ul.comment {
-    font-size: 13px;
-    height: 300px;
-    overflow: scroll;
-    list-style: disc; }
-    aside.infobar ul.comment li {
-      font-style: italic; }
+  aside.infobar ul.comment li {
+    font-style: italic; }
+  aside.infobar ul.todo li {
+    color: #c0392b; }
 
 section.result {
   display: inline-block;

@@ -43,6 +43,9 @@ class Site:
         self.comments_unsorted = list()
         self.comments_counter = 0
 
+        self.todo = list()
+        self.todo_counter = 0
+
         # LINKS
         self.links_unsorted = list()
         for link in self.soup.find_all('a'):
@@ -82,12 +85,16 @@ class Site:
             for img in errors.find_all('img', alt=False):
                 self.image_alt_error_links_unsorted.append(self.path + img['src'])
             for comments in errors.find_all(string=lambda text: isinstance(text, Comment)):
-                self.comments_unsorted.append(comments)
+                if "@todo" in str(comments):
+                    self.todo.append(comments[6:])
+                else:
+                    self.comments_unsorted.append(comments)
 
         self.image_alt_error_links = sorted(set(self.image_alt_error_links_unsorted), key=self.image_alt_error_links_unsorted.index)
         self.comments = sorted(set(self.comments_unsorted), key=self.comments_unsorted.index)
         self.image_alt_error_counter = len(self.image_alt_error_links)
         self.comments_counter = len(self.comments)
+        self.todo_counter = len(self.todo)
 
         # GET DESCRIPTION LENGTH
         for description in self.description:
