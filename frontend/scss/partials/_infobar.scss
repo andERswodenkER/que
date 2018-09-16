@@ -1,4 +1,5 @@
 %scrollList {
+  @include transition(all 5s ease);
   font-size: 13px;
   overflow: scroll;
   max-height: 120px;
@@ -8,16 +9,19 @@
 aside.infobar {
   float: right;
   padding: 15px 25px;
-  max-width: 300px;
+  width: 200px;
+  text-align: right;
   img {
     max-width: 13px;
   }
   ul {
     padding: 0;
+    margin: 0;
     li {
       list-style: none;
       margin-bottom: 10px;
       padding-bottom: 10px;
+      position: relative;
       p, span.head_title {
         font-size: 13px;
       }
@@ -27,7 +31,7 @@ aside.infobar {
       }
     }
     &.sideinfo {
-      margin-top: 50px;
+      margin-top: 20px;
     }
   }
 
@@ -47,5 +51,42 @@ aside.infobar {
     li {
       color: $error;
     }
+  }
+}
+
+div.statusbar {
+  display: inline-block;
+  width: 100%;
+  height: 29px;
+  background-color: $primarycolor;
+
+  span.path {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 13px;
+    color: $white;
+  }
+}
+
+div.footerbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $primarycolor;
+  color: $white;
+  font-size: 13px;
+  padding: 5px;
+  text-align: center;
+  span {
+    display: inline-block;
+    margin: 0 5px;
+    &.favicon {
+      background-color: $white;
+    }
+  }
+  img {
+    width: 13px;
   }
 }

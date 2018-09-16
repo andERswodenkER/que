@@ -38,3 +38,25 @@ span.head_title {
 .check {
   color: $check;
 }
+
+.upper {
+  text-transform: uppercase;
+}
+
+.click {
+  cursor: pointer;
+  &:after {
+    @include transition(all .3s ease);
+    font-family: 'feather' !important;
+    content: "\e843";
+    position: absolute;
+    right: -20px;
+    top: 5px;
+    line-height: 1;
+  }
+    &:hover {
+      &:after {
+        @include transform(rotate(-90deg));
+      }
+  }
+}

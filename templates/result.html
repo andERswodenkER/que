@@ -1,169 +1,155 @@
+{% extends 'base.html' %}
 {% block content %}
-    <aside class="infobar" v-html="bodyData" id="infobar">
-        <ul>
-            <li>
-                <p class="author"><span class="head_title">author</span> <br> {{ author }}</p>
-            </li>
-            <li>
-                <p class="favicon"><span class="head_title">favicon</span> <br> <img src="{{ favicon }}" alt=""></p>
-            </li>
-            <li>
-                <!-- TITLE SUMMARY -->
-                <span class="head_title">Title</span>
+    <div id="result">
+        <aside class="infobar" id="infobar">
+            <ul>
                 {% if t_error %}
-                    <p class="error">
-                        <i class="icon icon-x-circle"></i>
-                        {{ t_error }}
-                        Errors
-                    </p>
+                    <li>
+                        <p class="error">
+                            <i class="icon icon-x-circle"></i>
+                            {{ t_error }}
+                            Title Errors
+                        </p>
+                    </li>
                 {% endif %}
                 {% if t_warnings %}
-                    <p class="warning">
-                        <i class="icon icon-alert-triangle"></i>
-                        {{ t_warnings }}
-                        Warnings
-                    </p>
+                    <li>
+                        <p class="warning">
+                            <i class="icon icon-alert-triangle"></i>
+                            {{ t_warnings }}
+                            Title Warnings
+                        </p>
+                    </li>
                 {% endif %}
-                {% if t_error == 0 and t_warnings == 0 %}
-                    <p class="check"><i class="icon icon-check"></i> check</p>
-                {% endif %}
-            </li>
-            <li>
+
                 <!-- DESCRIPTION SUMMARY -->
-                <span class="head_title">Description</span>
+
                 {% if d_errors %}
-                    <p class="error">
-                        <i class="icon icon-x-circle"></i>
-                        {{ d_errors }}
-                        Errors
-                    </p>
+                    <li>
+                        <p class="error">
+                            <i class="icon icon-x-circle"></i>
+                            {{ d_errors }}
+                            Description Errors
+                        </p>
+                    </li>
                 {% endif %}
                 {% if d_warnings %}
-                    <p class="warning">
-                        <i class="icon icon-alert-triangle"></i>
-                        {{ d_warnings }}
-                        Warnings
-                    </p>
+                    <li>
+                        <p class="warning">
+                            <i class="icon icon-alert-triangle"></i>
+                            {{ d_warnings }}
+                            Description Warnings
+                        </p>
+                    </li>
                 {% endif %}
-                {% if d_error == 0 and d_warnings == 0 %}
-                    <p class="check"><i class="icon icon-check"></i> check</p>
-                {% endif %}
-            </li>
-            <li>
+
                 {% if keywords %}
-                    <p class="keywords"><span class="head_title">keywords</span> <br> {{ keywords }}</p>
-                {% else %}
-                    <p class="warning">
-                        <span class="head_title">keywords</span> <br>
-                        <i class="icon icon-alert-triangle"></i> no keywords found
-                    </p>
+                    <li>
+                        <p class="keywords">{{ keywords }}</p>
+                        {% else %}
+                        <li>
+                        <p class="warning">
+                            <i class="icon icon-alert-triangle"></i> no keywords found
+                        </p>
+                    </li>
                 {% endif %}
-            </li>
-        </ul>
-        <!-- IMAGE ERROR -->
-        {% if alt_errors %}
-            <ul class="sideInfo">
-                <li>
-                    <p class="error"><span class="head_title">Images</span> <br>
-                        <i class="icon icon-x-circle"></i> {{ alt_errors }} Images without alt Attribute</p>
-                </li>
-                <li>
-                    <div class="scrollWrapper">
-                        <ul class="link_list">
-                            {% for link in alt_links %}
-                                <li><a href="{{ link }}">{{ link }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </li>
             </ul>
-        {% endif %}
-    <!-- todos -->
+            <!-- IMAGE ERROR -->
+            {% if alt_errors %}
+                <ul class="sideInfo">
+                    <li>
+                        <p class="error click" v-on:click='altOpen = !altOpen'>
+                            <i class="icon icon-x-circle"></i> {{ alt_errors }} Images without alt Attribute
+                        </p>
+                    </li>
+                    <li v-show="altOpen">
+                        <div class="scrollWrapper">
+                            <ul class="link_list">
+                                {% for link in alt_links %}
+                                    <li><a href="{{ link }}">{{ link }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            {% endif %}
+            <!-- todos -->
             {% if todos %}
-            <ul class="sideinfo">
-                <li>
-                    <p class="error">
-                        <span class="head_title">Todos</span> <br>
-                        <i class="icon icon-x-circle"></i> {{ todos_counter }} todos found
-                    </p>
-                </li>
-                <li>
-                    <div class="scrollWrapper">
-                        <ul class="todo">
-                            {% for todo in todos %}
-                                <li>{{ todo }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        {% endif %}
+                <ul class="sideinfo">
+                    <li>
+                        <p class="error click" v-on:click='todoOpen = !todoOpen'>
+                            <i class="icon icon-x-circle"></i> {{ todos_counter }} todos found
+                        </p>
+                    </li>
+                    <li v-show="todoOpen">
+                        <div class="scrollWrapper">
+                            <ul class="todo">
+                                {% for todo in todos %}
+                                    <li>{{ todo }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            {% endif %}
 
-        <!-- COMMENT ERROR -->
-        {% if comments %}
-            <ul class="sideinfo">
-                <li>
-                    <p class="warning">
-                        <span class="head_title">Comments</span> <br>
-                        <i class="icon icon-alert-triangle"></i> {{ comments_counter }} comments found
-                    </p>
-                </li>
-                <li>
-                    <div class="scrollWrapper">
-                        <ul class="comment">
-                            {% for comment in comments %}
-                                <li>{{ comment }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        {% endif %}
-        <ul class="sideinfo">
-            <li>
-                <p class="apple_title"><span class="head_title">Apple Mobile App Title</span> <br> {{ appleapptitle }}</p>
-            </li>
-            <li>
-                <p class="apple_title"><span class="head_title">Apple Mobile App Icon</span> <br> <img src="{{ appletouchicon }}" alt=""></p>
-            </li>
-        </ul>
-    </aside>
-    <section class="result">
-        <ul>
-            {% for title, title_length, description, description_length, link in meta %}
-                <li>
-                    <a target="_blank" href="{{ link }}">{{ link }}</a>
-                    <h2>{{ title }}</h2>
-                    <p>{{ description }}</p>
-                    <div class="statusWrapper">
+            <!-- COMMENT ERROR -->
+            {% if comments %}
+                <ul class="sideinfo">
+                    <li>
+                        <p class="warning click" v-on:click='commentOpen = !commentOpen'>
+                            <i class="icon icon-alert-triangle"></i> {{ comments_counter }} comments found
+                        </p>
+                    </li>
+                    <li v-show="commentOpen">
+                        <div class="scrollWrapper">
+                            <ul class="comment">
+                                {% for comment in comments %}
+                                    <li>{{ comment }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            {% endif %}
+        </aside>
+        <section class="result">
+            <ul>
+                {% for title, title_length, description, description_length, link in meta %}
+                    <li>
+                        <a target="_blank" href="{{ link }}">{{ link }}</a>
+                        <h2>{{ title }}</h2>
+                        <p>{{ description }}</p>
+                        <div class="statusWrapper">
 
-                        <!-- TITLE LENGTH -->
-                        {% if title_length < 1 %}
-                            <p class="error"><span class="head_title">title:</span> <i class="icon icon-x-circle"></i> no title found!</p>
-                        {% elif title_length >= 60 %}
-                            <p class="warning"><span class="head_title">title:</span> <i class="icon icon-alert-triangle"></i> title is maybe to long... (<span>length: {{ title_length }}</span>)</p>
-                        {% else %}
-                            <p class="check"><span class="head_title">title:</span> <i class="icon icon-check"></i> check (<span>length: {{ title_length }}</span>)</p>
-                        {% endif %}
-                        <!-- DESCRIPTION LENGTH -->
-                        {% if description_length < 1 %}
-                            <p class="error"><span class="head_title">description:</span> <i class="icon icon-x-circle"></i> no description found!</p>
-                        {% elif description_length < 130 %}
-                            <p class="warning"><span class="head_title">description:</span> <i class="icon icon-alert-triangle"></i> description is maybe to short... (<span>length: {{ description_length }}</span>)</p>
-                        {% elif description_length >= 160 %}
-                            <p class="warning"><span class="head_title">description:</span> <i class="icon icon-alert-triangle"></i> description is maybe to long... (<span>length: {{ description_length }}</span>)</p>
-                        {% else %}
-                            <p class="check"><span class="head_title">description</span> <i class="icon icon-check"></i> check (<span>length: {{ description_length }}</span>)</p>
-                        {% endif %}
-                    </div>
-                </li>
+                            <!-- TITLE LENGTH -->
+                            {% if title_length < 1 %}
+                                <p class="error"><span class="head_title">title:</span> <i class="icon icon-x-circle"></i> no title found!</p>
+                            {% elif title_length >= 60 %}
+                                <p class="warning"><span class="head_title">title:</span> <i class="icon icon-alert-triangle"></i> title is maybe to long... (<span>length: {{ title_length }}</span>)</p>
+                            {% endif %}
+                            <!-- DESCRIPTION LENGTH -->
+                            {% if description_length < 1 %}
+                                <p class="error"><span class="head_title">description:</span> <i class="icon icon-x-circle"></i> no description found!</p>
+                            {% elif description_length < 130 %}
+                                <p class="warning"><span class="head_title">description:</span> <i class="icon icon-alert-triangle"></i> description is maybe to short... (<span>length: {{ description_length }}</span>)</p>
+                            {% elif description_length >= 160 %}
+                                <p class="warning"><span class="head_title">description:</span> <i class="icon icon-alert-triangle"></i> description is maybe to long... (<span>length: {{ description_length }}</span>)</p>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="errorWrapper">
+            {% for error in errors %}
+                <p class="error"><img src={{ url_for('static', filename='icons/x-circle.svg') }}> {{ error }}</p>
             {% endfor %}
-        </ul>
-    </section>
-
-    <section class="errorWrapper">
-        {% for error in errors %}
-            <p class="error"><img src={{ url_for('static', filename='icons/x-circle.svg') }}> {{ error }}</p>
-        {% endfor %}
-    </section>
+        </section>
+        <div class="footerbar">
+            <span>author: {{ author }}</span>
+            <span class="favicon"><img src="{{ favicon }}"></span>
+        </div>
+    </div>
 {% endblock %}

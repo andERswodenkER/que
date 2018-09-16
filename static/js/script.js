@@ -127,9 +127,12 @@ var app = new _vue2.default({
     el: '#app',
     data: {
         path: "",
-        resultData: "",
         loading: false,
-        show: false
+        show: true,
+        isOpen: false,
+        todoOpen: false,
+        commentOpen: false,
+        altOpen: false
     },
     methods: {
         post: function post() {
@@ -141,7 +144,6 @@ var app = new _vue2.default({
                 path: this.path
             }).then(function (response) {
                 _this.loading = false;
-                _this.resultData = response.body;
                 _this.show = true;
             }, function (response) {
                 console.log("error");

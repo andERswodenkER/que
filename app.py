@@ -17,7 +17,7 @@ def get_header():
 @app.route('/', methods=['POST'])
 def get_data():
     try:
-        path = validate_url(request.get_json()['path'])
+        path = validate_url(request.form['path'])
         site = Site(path)
     except HTTPError as e:
         return render_template('error.html', code=e.code, msg=e.reason)
@@ -26,7 +26,7 @@ def get_data():
         return render_template('error.html', code="", msg=e.reason)
 
     except Exception as e:
-        return render_template('error.html', code="", msg="Es ist ein Fehler aufgetreten: {0}".format(e))
+        return render_template('error.html', code="", msg="sorry!: {0}".format(e))
     else:
         meta_data = zip(site.titles,
                         site.title_length,
@@ -75,7 +75,9 @@ def api(path):
             favicon=site.favicon,
             apple_touch_icon=site.apple_touch_icon,
             apple_touch_title=site.apple_touch_title,
-            keywords=site.keywords
+            keywords=site.keywords,
+            todos=site.todo,
+            todo_counter=site.todo_counter,
         )
 
         return data

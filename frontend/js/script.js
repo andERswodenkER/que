@@ -14,9 +14,12 @@ var app = new Vue({
     el: '#app',
     data: {
         path: "",
-        resultData: "",
         loading: false,
-        show: false,
+        show: true,
+        isOpen: false,
+        todoOpen: false,
+        commentOpen: false,
+        altOpen: false,
     },
     methods: {
         post: function () {
@@ -26,11 +29,10 @@ var app = new Vue({
                 path: this.path
             }).then(response => {
                 this.loading = false;
-                this.resultData = response.body;
                 this.show = true;
             }, response => {
                 console.log("error");
             });
-        }
+        },
     }
 });

@@ -81,6 +81,7 @@ class Site:
             except Exception as e:
                 pass
 
+        # GET ERRORS
         for errors in self.soups:
             for img in errors.find_all('img', alt=False):
                 self.image_alt_error_links_unsorted.append(self.path + img['src'])

@@ -4,27 +4,27 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-<section class="content" id="app">
-    <div class="searchWrapper">
-        <form action="/">
-            <input required type="text" v-model="path" name="path" placeholder="website">
-            <button id="button" v-on:click.prevent="post">test</button>
-        </form>
-    </div>
-    <transition name="spinner-fade">
-    <div class="spinnerWrapper" v-if="loading">
-        <div class="spinner">
-            <div class="bounce1"></div>
-            <div class="bounce2"></div>
-            <div class="bounce3"></div>
+<section id="app" v-cloak>
+    <div class="statusbar">
+        <div class="searchWrapper">
+            <form action="{{ url_for('get_data') }}" method="post">
+                <input required type="text" v-model="path"  name="path" placeholder="http://www.yoursite.com">
+                <button id="button" v-on:click="post" type="submit"><i class="icon icon-arrow-right"></i></button>
+            </form>
         </div>
     </div>
+    <transition name="spinner-fade">
+        <div class="spinnerWrapper" v-if="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
     </transition>
-    <transition name="fade">
-        <div class="content" v-html="resultData" v-if="show">
-           {{ """{{ resultData }}""" |safe}}
-         </div>
-    </transition>
+    <div class="result content" v-if="show">
+        {% block content %} {% endblock %}
+    </div>
 </section>
 <footer>
     <i class="icon icon-gift"></i> by anderswodenker
