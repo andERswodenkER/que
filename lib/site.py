@@ -8,7 +8,7 @@ class Site:
         self.title = ""
         self.links = ""
 
-        self.site = urlopen(str(self.path))q
+        self.site = urlopen(str(self.path))
         self.soup = BeautifulSoup(self.site, 'html.parser')
 
         self.sites = list()
