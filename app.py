@@ -5,6 +5,7 @@ from flask import jsonify
 from lib.site import Site
 from urllib.error import URLError, HTTPError
 from urllib.parse import urlparse
+import tldextract
 
 app = Flask(__name__)
 
@@ -88,6 +89,8 @@ def api(path):
 
 def validate_url(path):
     url = path
+    url2 = urlparse(path)
+    sub = tldextract.extract(url)
 
     if url.endswith("/"):
         url = url[:-1]
@@ -100,11 +103,11 @@ def validate_url(path):
     else:
         netloc = p.path
         path = ''
-    if not netloc.startswith('www.'):
+    if not netloc.startswith('www.') and not sub.subdomain:
         netloc = 'www.' + netloc
+
     p = p._replace(netloc=netloc, path=path)
     print(p.geturl())
-
     return p.geturl()
 
 

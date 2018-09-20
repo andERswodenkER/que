@@ -8,7 +8,7 @@ class Site:
         self.title = ""
         self.links = ""
 
-        self.site = urlopen(str(self.path))
+        self.site = urlopen(str(self.path))q
         self.soup = BeautifulSoup(self.site, 'html.parser')
 
         self.sites = list()
@@ -61,7 +61,7 @@ class Site:
                 print("get data from: {0}".format(sites))
             except Exception as e:
                 self.site_errors.append("{0} - {1}".format(sites, e))
-                pass
+                print(e)
 
         # GET SOUP FROM SITES
         for site in self.sites:
@@ -79,6 +79,7 @@ class Site:
                 self.keywords = tags.find(attrs={"name": "keywords"})['content']
 
             except Exception as e:
+                print(e)
                 pass
 
         # GET ERRORS
