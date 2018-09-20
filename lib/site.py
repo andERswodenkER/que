@@ -115,3 +115,4 @@ class Site:
                 self.title_errors += 1
             elif len(title) >= 60:
                 self.title_warnings += 1
+
