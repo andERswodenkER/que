@@ -20,6 +20,7 @@ var app = new Vue({
         todoOpen: false,
         commentOpen: false,
         altOpen: false,
+        errorOpen: false,
     },
     methods: {
         post: function () {

@@ -1180,15 +1180,15 @@ button::-moz-focus-inner {
 
 h2 {
   font-family: 'Roboto Condensed', sans-serif;
-  margin: 10px 0 5px 0;
+  margin: 5px 0 20px 0;
   font-size: 18px;
   letter-spacing: 0.5px; }
 
 p {
-  margin: 0;
   font-size: 15px;
   line-height: 22px;
-  color: #3E3E40; }
+  color: #3E3E40;
+  margin-bottom: 5px; }
 
 a {
   color: #3E3E40; }
@@ -1397,6 +1397,9 @@ aside.infobar ul.link_list, aside.infobar ul.comment, aside.infobar ul.todo {
   overflow: scroll;
   max-height: 120px;
   padding-left: 5px; }
+  aside.infobar ul.link_list li, aside.infobar ul.comment li, aside.infobar ul.todo li {
+    color: #c93d1b;
+    list-style: disc; }
 
 aside.infobar {
   float: right;
@@ -1420,10 +1423,15 @@ aside.infobar {
         text-align: left; }
     aside.infobar ul.sideinfo {
       margin-top: 20px; }
+      aside.infobar ul.sideinfo li {
+        margin-bottom: 0; }
   aside.infobar ul.comment li {
-    font-style: italic; }
-  aside.infobar ul.todo li {
-    color: #c93d1b; }
+    font-style: italic;
+    color: #f8c43a; }
+  aside.infobar ul.todo {
+    padding-right: 20px; }
+    aside.infobar ul.todo li {
+      color: #c93d1b; }
 
 div.statusbar {
   display: inline-block;
@@ -1454,6 +1462,11 @@ div.footerbar {
       background-color: #EDEEE9; }
   div.footerbar img {
     width: 13px; }
+
+div.scrollWrapper {
+  margin-right: -20px;
+  margin-top: 30px;
+  width: 101%; }
 
 section.result {
   display: inline-block;

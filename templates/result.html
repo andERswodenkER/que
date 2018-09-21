@@ -3,6 +3,22 @@
     <div id="result">
         <aside class="infobar" id="infobar">
             <ul>
+                {% if site_errors %}
+                    <li>
+                        <p class="error click" v-on:click='errorOpen = !errorOpen'>
+                            <i class="icon icon-x-circle"></i> {{ site_errors_counter }} site errors found
+                        </p>
+                        <transition name="fade">
+                            <div class="scrollWrapper" v-show="errorOpen">
+                                <ul class="link_list">
+                                    {% for error in site_errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </transition>
+                    </li>
+                {% endif %}
                 {% if t_error %}
                     <li>
                         <p class="error">
@@ -21,9 +37,6 @@
                         </p>
                     </li>
                 {% endif %}
-
-                <!-- DESCRIPTION SUMMARY -->
-
                 {% if d_errors %}
                     <li>
                         <p class="error">
@@ -42,76 +55,70 @@
                         </p>
                     </li>
                 {% endif %}
+                <!-- IMAGE ERROR -->
+                {% if alt_errors %}
+                    <li>
+                        <p class="error click" v-on:click='altOpen = !altOpen'>
+                            <i class="icon icon-x-circle"></i> {{ alt_errors }} Images without alt Attribute
+                        </p>
+                        <transition name="fade">
+                            <div class="scrollWrapper" v-show="altOpen">
+                                <ul class="link_list">
+                                    {% for link in alt_links %}
+                                        <li><a href="{{ link }}">{{ link }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </transition>
+                    </li>
+                {% endif %}
+                <!-- todos -->
+                {% if todos %}
+                    <li>
+                        <p class="error click" v-on:click='todoOpen = !todoOpen'>
+                            <i class="icon icon-x-circle"></i> {{ todos_counter }} todos found
+                        </p>
+                        <transition name="fade">
+                            <div class="scrollWrapper" v-show="todoOpen">
+                                <ul class="todo">
+                                    {% for todo in todos %}
+                                        <li>{{ todo }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </transition>
+                    </li>
+                {% endif %}
 
+                <!-- COMMENT ERROR -->
+                {% if comments %}
+                    <li>
+                        <p class="warning click" v-on:click='commentOpen = !commentOpen'>
+                            <i class="icon icon-alert-triangle"></i> {{ comments_counter }} comments found
+                        </p>
+                        <transition name="fade">
+                            <div class="scrollWrapper" v-show="commentOpen">
+                                <ul class="comment">
+                                    {% for comment in comments %}
+                                        <li>{{ comment }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </transition>
+                    </li>
+                {% endif %}
                 {% if keywords %}
                     <li>
-                        <p class="keywords">{{ keywords }}</p>
-                        {% else %}
-                        <li>
+                        <p class="keywords">KEYWORDS: {{ keywords }}</p>
+                    </li>
+                {% else %}
+                    <li>
                         <p class="warning">
                             <i class="icon icon-alert-triangle"></i> no keywords found
                         </p>
                     </li>
                 {% endif %}
             </ul>
-            <!-- IMAGE ERROR -->
-            {% if alt_errors %}
-                <ul class="sideInfo">
-                    <li>
-                        <p class="error click" v-on:click='altOpen = !altOpen'>
-                            <i class="icon icon-x-circle"></i> {{ alt_errors }} Images without alt Attribute
-                        </p>
-                    </li>
-                    <li v-show="altOpen">
-                        <div class="scrollWrapper">
-                            <ul class="link_list">
-                                {% for link in alt_links %}
-                                    <li><a href="{{ link }}">{{ link }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            {% endif %}
-            <!-- todos -->
-            {% if todos %}
-                <ul class="sideinfo">
-                    <li>
-                        <p class="error click" v-on:click='todoOpen = !todoOpen'>
-                            <i class="icon icon-x-circle"></i> {{ todos_counter }} todos found
-                        </p>
-                    </li>
-                    <li v-show="todoOpen">
-                        <div class="scrollWrapper">
-                            <ul class="todo">
-                                {% for todo in todos %}
-                                    <li>{{ todo }}</li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            {% endif %}
-
-            <!-- COMMENT ERROR -->
-            {% if comments %}
-                <ul class="sideinfo">
-                    <li>
-                        <p class="warning click" v-on:click='commentOpen = !commentOpen'>
-                            <i class="icon icon-alert-triangle"></i> {{ comments_counter }} comments found
-                        </p>
-                    </li>
-                    <li v-show="commentOpen">
-                        <div class="scrollWrapper">
-                            <ul class="comment">
-                                {% for comment in comments %}
-                                    <li>{{ comment }}</li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            {% endif %}
         </aside>
         <section class="result">
             <ul>
@@ -142,11 +149,6 @@
             </ul>
         </section>
 
-        <section class="errorWrapper">
-            {% for error in errors %}
-                <p class="error"><img src={{ url_for('static', filename='icons/x-circle.svg') }}> {{ error }}</p>
-            {% endfor %}
-        </section>
         <div class="footerbar">
             <span>author: {{ author }}</span>
             <span class="favicon"><img src="{{ favicon }}"></span>

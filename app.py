@@ -38,6 +38,8 @@ def get_data():
         return render_template('result.html',
                                path=path,
                                meta=meta_data,
+                               site_errors=site.site_errors,
+                               site_errors_counter=site.site_errors_counter,
                                t_warnings=site.title_warnings,
                                t_error=site.title_errors,
                                d_warnings=site.description_warnings,

@@ -4,6 +4,10 @@
   overflow: scroll;
   max-height: 120px;
   padding-left: 5px;
+  li {
+    color: $error;
+    list-style: disc;
+  }
 }
 
 aside.infobar {
@@ -32,6 +36,9 @@ aside.infobar {
     }
     &.sideinfo {
       margin-top: 20px;
+      li {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -43,11 +50,13 @@ aside.infobar {
     @extend %scrollList;
     li {
       font-style: italic;
+      color: $warning;
     }
   }
 
   ul.todo {
     @extend %scrollList;
+    padding-right: 20px;
     li {
       color: $error;
     }
@@ -89,4 +98,10 @@ div.footerbar {
   img {
     width: 13px;
   }
+}
+
+div.scrollWrapper {
+  margin-right: -20px;
+  margin-top: 30px;
+  width: 101%;
 }

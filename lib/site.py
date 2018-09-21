@@ -18,6 +18,7 @@ class Site:
         self.description = list()
 
         self.site_errors = list()
+        self.site_errors_counter = 0
 
         self.title_errors = 0
         self.description_errors = 0
@@ -97,6 +98,7 @@ class Site:
         self.image_alt_error_counter = len(self.image_alt_error_links)
         self.comments_counter = len(self.comments)
         self.todo_counter = len(self.todo)
+        self.site_errors_counter = len(self.site_errors)
 
         # GET DESCRIPTION LENGTH
         for description in self.description:
