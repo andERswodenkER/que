@@ -3,3 +3,18 @@ div.searchWrapper {
   display: block;
   width: 360px;
 }
+
+div.statusbar {
+  display: inline-block;
+  width: 100%;
+  height: 29px;
+  margin: 25px 0;
+
+  span.path {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 13px;
+    color: $white;
+  }
+}

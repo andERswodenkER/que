@@ -24,7 +24,7 @@
                         <p class="error">
                             <i class="icon icon-x-circle"></i>
                             {{ t_error }}
-                            Title Errors
+                            title errors
                         </p>
                     </li>
                 {% endif %}
@@ -33,7 +33,7 @@
                         <p class="warning">
                             <i class="icon icon-alert-triangle"></i>
                             {{ t_warnings }}
-                            Title Warnings
+                            title warnings
                         </p>
                     </li>
                 {% endif %}
@@ -42,7 +42,7 @@
                         <p class="error">
                             <i class="icon icon-x-circle"></i>
                             {{ d_errors }}
-                            Description Errors
+                            description errors
                         </p>
                     </li>
                 {% endif %}
@@ -51,7 +51,7 @@
                         <p class="warning">
                             <i class="icon icon-alert-triangle"></i>
                             {{ d_warnings }}
-                            Description Warnings
+                            description warnings
                         </p>
                     </li>
                 {% endif %}
@@ -59,7 +59,7 @@
                 {% if alt_errors %}
                     <li>
                         <p class="error click" v-on:click='altOpen = !altOpen'>
-                            <i class="icon icon-x-circle"></i> {{ alt_errors }} Images without alt Attribute
+                            <i class="icon icon-x-circle"></i> {{ alt_errors }} images without alt attribute
                         </p>
                         <transition name="fade">
                             <div class="scrollWrapper" v-show="altOpen">
@@ -131,17 +131,17 @@
 
                             <!-- TITLE LENGTH -->
                             {% if title_length < 1 %}
-                                <p class="error"><span class="head_title">title:</span> <i class="icon icon-x-circle"></i> no title found!</p>
+                                <p class="error"><i class="icon icon-x-circle"></i> no title found!</p>
                             {% elif title_length >= 60 %}
-                                <p class="warning"><span class="head_title">title:</span> <i class="icon icon-alert-triangle"></i> title is maybe to long... (<span>length: {{ title_length }}</span>)</p>
+                                <p class="warning"><i class="icon icon-alert-triangle"></i> title is maybe to long... (<span>length: {{ title_length }}</span>)</p>
                             {% endif %}
                             <!-- DESCRIPTION LENGTH -->
                             {% if description_length < 1 %}
-                                <p class="error"><span class="head_title">description:</span> <i class="icon icon-x-circle"></i> no description found!</p>
+                                <p class="error"><i class="icon icon-x-circle"></i> no description found!</p>
                             {% elif description_length < 130 %}
-                                <p class="warning"><span class="head_title">description:</span> <i class="icon icon-alert-triangle"></i> description is maybe to short... (<span>length: {{ description_length }}</span>)</p>
+                                <p class="warning"><i class="icon icon-alert-triangle"></i> description is maybe to short... (<span>length: {{ description_length }}</span>)</p>
                             {% elif description_length >= 160 %}
-                                <p class="warning"><span class="head_title">description:</span> <i class="icon icon-alert-triangle"></i> description is maybe to long... (<span>length: {{ description_length }}</span>)</p>
+                                <p class="warning"><i class="icon icon-alert-triangle"></i> description is maybe to long... (<span>length: {{ description_length }}</span>)</p>
                             {% endif %}
                         </div>
                     </li>

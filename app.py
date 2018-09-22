@@ -29,11 +29,12 @@ def get_data():
     except Exception as e:
         return render_template('error.html', code="", msg="sorry!: {0}".format(e))
     else:
-        meta_data = zip(site.titles,
+        meta_data = zip(site.title,
                         site.title_length,
                         site.description,
                         site.description_length,
                         site.links)
+        print(site.author)
 
         return render_template('result.html',
                                path=path,
@@ -63,24 +64,31 @@ def api(path):
     try:
         url = validate_url(path)
         site = Site(url)
+        meta_data = zip(site.title,
+                        site.title_length,
+                        site.description,
+                        site.description_length,
+                        site.links)
         data = jsonify(
-            author=site.author,
             path=path,
-            sites=site.links,
-            titles=site.titles,
-            title_length=site.title_length,
-            title_warning=site.title_warnings,
-            title_error=site.title_errors,
-            description=site.description,
-            description_length=site.description_length,
-            description_warnings=site.description_warnings,
-            description_erros=site.description_errors,
+            meta=meta_data,
+            site_errors=site.site_errors,
+            site_errors_counter=site.site_errors_counter,
+            t_warnings=site.title_warnings,
+            t_error=site.title_errors,
+            d_warnings=site.description_warnings,
+            d_errors=site.description_errors,
+            author=site.author,
             favicon=site.favicon,
-            apple_touch_icon=site.apple_touch_icon,
-            apple_touch_title=site.apple_touch_title,
+            appletouchicon=site.apple_touch_icon,
+            appleapptitle=site.apple_touch_title,
             keywords=site.keywords,
+            alt_links=site.image_alt_error_links,
+            alt_errors=site.image_alt_error_counter,
+            comments=site.comments,
+            comments_counter=site.comments_counter,
             todos=site.todo,
-            todo_counter=site.todo_counter,
+            todos_counter=site.todo_counter
         )
 
         return data
@@ -91,7 +99,6 @@ def api(path):
 
 def validate_url(path):
     url = path
-    url2 = urlparse(path)
     sub = tldextract.extract(url)
 
     if url.endswith("/"):

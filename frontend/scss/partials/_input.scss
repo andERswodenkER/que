@@ -1,17 +1,25 @@
   input[type="text"] {
     width: calc(90% - 12px);
     padding: 5px;
-    background-color: $white;
+    border-bottom: 1px solid $primarycolor;
   }
 
   button {
     @include transition(all .33s ease);
-    @include transform(translateX(-36px));
+    @include transform(translateX(-55px));
     cursor: pointer;
     padding: 5px;
     width: calc(10% - 20px);
     color: $primarycolor;
     &:hover {
       color: black;
+    }
+  }
+
+  form {
+    &:focus-within {
+      button {
+        @include transform(rotate(90deg));
+      }
     }
   }
