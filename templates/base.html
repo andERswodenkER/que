@@ -6,6 +6,9 @@
 </head>
 <body>
 <section id="app" v-cloak>
+<div class="logoWrapper">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Synopsis Frontend Test">
+</div>
     <div class="statusbar">
         <div class="searchWrapper">
             <form action="{{ url_for('get_data') }}" method="post">

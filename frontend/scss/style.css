@@ -1395,6 +1395,13 @@ div.statusbar {
     font-size: 13px;
     color: #EDEEE9; }
 
+div.logoWrapper {
+  position: fixed;
+  right: 13px;
+  top: 31px; }
+  div.logoWrapper img {
+    max-width: 80px; }
+
 aside.infobar ul.link_list, aside.infobar ul.comment, aside.infobar ul.todo {
   -webkit-transition: all 5s ease;
   -khtml-transition: all 5s ease;

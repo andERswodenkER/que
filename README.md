@@ -22,7 +22,6 @@ Make sure you have python on your device. Run with Python > 3.0.0
 #### run: <br>
 `python3 app.py`
 
-
 ## cool stuff
 
 it has also a API to give the result as json format:

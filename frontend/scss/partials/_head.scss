@@ -18,3 +18,13 @@ div.statusbar {
     color: $white;
   }
 }
+
+div.logoWrapper {
+  position: fixed;
+  right: 13px;
+  top: 31px;
+
+  img {
+    max-width: 80px;
+  }
+}
