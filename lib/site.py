@@ -83,13 +83,16 @@ class Site:
         self.site_errors_counter = len(self.site_errors)
 
     def get_links(self):
-        for link in self.soup.find_all('a'):
-            if link.get('href'):
-                if link.get('href').startswith("/") and not link.get('href')[-3:] == "pdf":
-                    print(self.path + link.get('href'))
-                    self.links_unsorted.append(self.path + link.get('href'))
+        try:
+            for link in self.soup.find_all('a'):
+                if link.get('href'):
+                    if link.get('href').startswith("/") and not link.get('href')[-3:] == "pdf":
+                        print(self.path + link.get('href'))
+                        self.links_unsorted.append(self.path + link.get('href'))
+            self.links = self.sorting(self.links_unsorted)
 
-        self.links = self.sorting(self.links_unsorted)
+        except Exception as e:
+            pass
 
     def get_meta_data(self):
         for tags in self.soups:

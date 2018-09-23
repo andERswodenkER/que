@@ -34,29 +34,30 @@ def get_data():
                         site.description,
                         site.description_length,
                         site.links)
-        print(site.author)
-
-        return render_template('result.html',
-                               path=path,
-                               meta=meta_data,
-                               site_errors=site.site_errors,
-                               site_errors_counter=site.site_errors_counter,
-                               t_warnings=site.title_warnings,
-                               t_error=site.title_errors,
-                               d_warnings=site.description_warnings,
-                               d_errors=site.description_errors,
-                               author=site.author,
-                               favicon=site.favicon,
-                               appletouchicon=site.apple_touch_icon,
-                               appleapptitle=site.apple_touch_title,
-                               keywords=site.keywords,
-                               alt_links=site.image_alt_error_links,
-                               alt_errors=site.image_alt_error_counter,
-                               comments=site.comments,
-                               comments_counter=site.comments_counter,
-                               todos=site.todo,
-                               todos_counter=site.todo_counter
-                               )
+        if not site.title_length == [] and not site.description_length == []:
+            return render_template('result.html',
+                                   path=path,
+                                   meta=meta_data,
+                                   site_errors=site.site_errors,
+                                   site_errors_counter=site.site_errors_counter,
+                                   t_warnings=site.title_warnings,
+                                   t_error=site.title_errors,
+                                   d_warnings=site.description_warnings,
+                                   d_errors=site.description_errors,
+                                   author=site.author,
+                                   favicon=site.favicon,
+                                   appletouchicon=site.apple_touch_icon,
+                                   appleapptitle=site.apple_touch_title,
+                                   keywords=site.keywords,
+                                   alt_links=site.image_alt_error_links,
+                                   alt_errors=site.image_alt_error_counter,
+                                   comments=site.comments,
+                                   comments_counter=site.comments_counter,
+                                   todos=site.todo,
+                                   todos_counter=site.todo_counter
+                                   )
+        else:
+            return render_template('noresults.html')
 
 
 @app.route('/get/<path>')
@@ -64,14 +65,14 @@ def api(path):
     try:
         url = validate_url(path)
         site = Site(url)
-        meta_data = zip(site.title,
-                        site.title_length,
-                        site.description,
-                        site.description_length,
-                        site.links)
+
         data = jsonify(
             path=path,
-            meta=meta_data,
+            title=site.title,
+            title_length=site.title_length,
+            description=site.description,
+            description_length=site.description_length,
+            links=site.links,
             site_errors=site.site_errors,
             site_errors_counter=site.site_errors_counter,
             t_warnings=site.title_warnings,
