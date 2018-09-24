@@ -4,9 +4,22 @@ footer {
   text-align: center;
   font-size: 11px;
   position: fixed;
-  bottom: 0;
+  bottom: 6px;
   right: 13px;
   img {
     max-width: 13px;
+  }
+}
+
+div.poweredWrapper {
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-size: 11px;
+  position: fixed;
+  left: 13px;
+  bottom: 35px;
+
+  img {
+    max-width: 23px;
+    vertical-align: middle;
   }
 }

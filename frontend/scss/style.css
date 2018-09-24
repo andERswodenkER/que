@@ -1177,6 +1177,12 @@ button::-moz-focus-inner {
 .icon-youtube:before {
   content: "\e92a"; }
 
+h1 {
+  font-family: 'Nanum Gothic Coding', monospace;
+  text-align: center;
+  color: #3E3E40;
+  font-size: 18px; }
+
 h2 {
   font-family: 'Roboto Condensed', sans-serif;
   margin: 12px 0 0 0;
@@ -1499,9 +1505,19 @@ footer {
   text-align: center;
   font-size: 11px;
   position: fixed;
-  bottom: 0;
+  bottom: 6px;
   right: 13px; }
   footer img {
     max-width: 13px; }
+
+div.poweredWrapper {
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-size: 11px;
+  position: fixed;
+  left: 13px;
+  bottom: 35px; }
+  div.poweredWrapper img {
+    max-width: 23px;
+    vertical-align: middle; }
 
 /*# sourceMappingURL=style.css.map */
