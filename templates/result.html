@@ -152,6 +152,7 @@
         <div class="footerbar">
             <span>author: {{ author }}</span>
             <span class="favicon"><img src="{{ favicon }}"></span>
+            <a class="download" href="{{ url_for('static', filename='seo.csv') }}"><i class="icon icon-file"></i> download csv</a>
         </div>
     </div>
 {% endblock %}

@@ -6,6 +6,8 @@ from lib.site import Site
 from urllib.error import URLError, HTTPError
 from urllib.parse import urlparse
 import tldextract
+import csv
+from urllib.request import urlopen
 
 app = Flask(__name__)
 
@@ -20,6 +22,12 @@ def get_data():
     try:
         path = validate_url(request.form['path'])
         site = Site(path)
+        with open('static/seo.csv', 'w', newline='') as csvfile:
+            seo_writer = csv.writer(csvfile, delimiter=';')
+            seo_writer.writerow(site.links)
+            seo_writer.writerow(site.title)
+            seo_writer.writerow(site.description)
+
     except HTTPError as e:
         return render_template('error.html', code=e.code, msg=e.reason)
 
@@ -96,6 +104,26 @@ def api(path):
 
     except Exception as e:
         return print("Es ist ein Fehler aufgetreten: {0}".format(e))
+
+@app.route('/csv/<path>')
+def export_csv(path):
+    url = validate_url(path)
+    site = Site(url)
+    try:
+        with open('seo.csv'.format(url), 'w', newline='') as csvfile:
+            seo_writer = csv.writer(csvfile, delimiter=';')
+            seo_writer.writerow(site.links)
+            seo_writer.writerow(site.title)
+            seo_writer.writerow(site.description)
+
+        f = urlopen("seo.csv")
+        with open("code2.zip", "wb") as code:
+            code.write(f.read())
+
+            return "OK!"
+
+    except Exception as e:
+        print(e)
 
 
 def validate_url(path):

@@ -89,3 +89,14 @@ div.scrollWrapper {
   margin-top: 30px;
   width: 101%;
 }
+
+a.download {
+  color: $white;
+  text-align: right;
+  position: absolute;
+  right: 36px;
+  top: 6px;
+  &:hover {
+    color: white;
+  }
+}
