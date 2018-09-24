@@ -87,7 +87,6 @@ class Site:
             for link in self.soup.find_all('a'):
                 if link.get('href'):
                     if link.get('href').startswith("/") and not link.get('href')[-3:] == "pdf":
-                        print(self.path + link.get('href'))
                         self.links_unsorted.append(self.path + link.get('href'))
             self.links = self.sorting(self.links_unsorted)
 

@@ -23,3 +23,9 @@ div.poweredWrapper {
     vertical-align: middle;
   }
 }
+
+input.paypal {
+  border-bottom: 1px solid $primarycolor;
+  padding-bottom: 3px;
+  color: $primarycolor
+}

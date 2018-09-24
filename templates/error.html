@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-    <section class="result">
+    <div class="centerWrapper">
+        <div class="path">
+            <p>{{ path }}</p>
+        </div>
         <p>{{ code }}</p>
         <p>{{ msg }}</p>
-    </section>
+    </div>
 {% endblock %}

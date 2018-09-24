@@ -28,3 +28,22 @@ section.result {
     }
   }
 }
+
+div.path {
+  font-family: 'Nanum Gothic Coding', monospace;
+  text-align: left;
+  width: calc(100% - 24px);
+  display: inline-block;
+  margin: 13px 0;
+  p, a {
+    font-size: 13px;
+  }
+}
+
+a.download {
+  color: $primarycolor;
+  margin-left: 13px;
+  &:hover {
+    color: black;
+  }
+}

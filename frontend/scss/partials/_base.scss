@@ -17,6 +17,29 @@ section.result {
   animation: in 1s;
 }
 
+div.about {
+  font-family: 'Nanum Gothic Coding', monospace;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  color: $primarycolor;
+  font-size: 13px;
+
+  div.contactCard {
+    margin: 25px 0;
+    span,a,p {
+      display: block;
+      margin-bottom: 6px;
+    }
+  }
+}
+
+div.copyright {
+  font-size: 11px;
+  text-align: center;
+  color: $primarycolor;
+}
+
 section.status {
   margin-top: 20px;
 }
@@ -26,6 +49,24 @@ section.errorWrapper {
   font-size: 20px;
   img {
     max-width: 20px;
+  }
+}
+
+a.navitem {
+  display: inline-block;
+  padding-left: 13px;
+  margin-top: 13px;
+  font-size: 13px;
+}
+
+div.centerWrapper {
+  font-family: 'Nanum Gothic Coding', monospace;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  p,a,span {
+    color: $primarycolor;
+    font-size: 13px;
   }
 }
 

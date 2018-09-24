@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
     <div id="result">
+        <div class="path">
+            <p>{{ path }} <a class="download" href="{{ url_for('static', filename=hash+'.csv') }}"><i class="icon icon-download"></i> download csv</a></p>
+        </div>
         <aside class="infobar" id="infobar">
             <ul>
                 {% if site_errors %}
@@ -118,11 +121,6 @@
                         </p>
                     </li>
                 {% endif %}
-            <li>
-                <p>
-                    <a class="download" href="{{ url_for('static', filename=hash+'.csv') }}"><i class="icon icon-download"></i> download csv</a>
-                </p>
-            </li>
             </ul>
         </aside>
         <section class="result">
