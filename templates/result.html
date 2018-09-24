@@ -118,6 +118,11 @@
                         </p>
                     </li>
                 {% endif %}
+            <li>
+                <p>
+                    <a class="download" href="{{ url_for('static', filename=hash+'.csv') }}"><i class="icon icon-download"></i> download csv</a>
+                </p>
+            </li>
             </ul>
         </aside>
         <section class="result">
@@ -152,7 +157,6 @@
         <div class="footerbar">
             <span>author: {{ author }}</span>
             <span class="favicon"><img src="{{ favicon }}"></span>
-            <a class="download" href="{{ url_for('static', filename=hash+'.csv') }}"><i class="icon icon-file"></i> download csv</a>
         </div>
     </div>
 {% endblock %}

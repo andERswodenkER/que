@@ -1477,13 +1477,7 @@ div.scrollWrapper {
   width: 101%; }
 
 a.download {
-  color: #EDEEE9;
-  text-align: right;
-  position: absolute;
-  right: 36px;
-  top: 6px; }
-  a.download:hover {
-    color: white; }
+  text-decoration: none; }
 
 section.result {
   display: inline-block;
