@@ -8,6 +8,7 @@ from urllib.parse import urlparse
 import tldextract
 import csv
 from urllib.request import urlopen
+import random
 
 app = Flask(__name__)
 
@@ -22,7 +23,8 @@ def get_data():
     try:
         path = validate_url(request.form['path'])
         site = Site(path)
-        with open('static/seo.csv', 'w', newline='') as csvfile:
+        hash = random.getrandbits(16)
+        with open('static/{0}.csv'.format(hash), 'w', newline='') as csvfile:
             seo_writer = csv.writer(csvfile, delimiter=';')
             seo_writer.writerow(site.links)
             seo_writer.writerow(site.title)
@@ -62,7 +64,8 @@ def get_data():
                                    comments=site.comments,
                                    comments_counter=site.comments_counter,
                                    todos=site.todo,
-                                   todos_counter=site.todo_counter
+                                   todos_counter=site.todo_counter,
+                                   hash=str(hash)
                                    )
         else:
             return render_template('noresults.html')
