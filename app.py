@@ -4,10 +4,7 @@ from flask import request
 from flask import jsonify
 from lib.site import Site
 from urllib.error import URLError, HTTPError
-from urllib.parse import urlparse
-import tldextract
 import csv
-from urllib.request import urlopen
 import random
 
 app = Flask(__name__)
@@ -15,17 +12,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def get_header():
-    return render_template('base.html', title="QS")
+    return render_template('start.html', title="syno")
 
 
 @app.route('/', methods=['POST'])
 def get_data():
     try:
-        path = validate_url(request.form['path'])
-        site = Site(path)
+        site = Site(request.form['path'])
         hash_value = random.getrandbits(16)
         file_string = str(request.form['path'])[11:-4] + str(hash_value)
-        print(file_string)
         with open('static/{0}.csv'.format(file_string), 'w', newline='') as csvfile:
             seo_writer = csv.writer(csvfile,  delimiter=",")
             seo_writer.writerow(["Link"] + ["Title"] + ["Description"])
@@ -48,7 +43,7 @@ def get_data():
                         site.links)
         if not site.title_length == [] and not site.description_length == []:
             return render_template('result.html',
-                                   path=path,
+                                   path=request.form['path'],
                                    meta=meta_data,
                                    site_errors=site.site_errors,
                                    site_errors_counter=site.site_errors_counter,
@@ -72,15 +67,14 @@ def get_data():
         else:
             return render_template('noresults.html')
 
+
 @app.route('/scan/<path>')
 def get_url(path):
     try:
-        url = validate_url(path)
-        site = Site(url)
-        hash_value = random.getrandbits(8)
-        file = str(path[4:3]) + str(hash_value)
-        print(file)
-        with open('static/{0}.csv'.format(file), 'w', newline='') as csvfile:
+        site = Site(path)
+        hash_value = random.getrandbits(16)
+        file_string = str(request.form['path'])[11:-4] + str(hash_value)
+        with open('static/{0}.csv'.format(file_string), 'w', newline='') as csvfile:
             seo_writer = csv.writer(csvfile,  delimiter=",")
             seo_writer.writerow(["Link"] + ["Title"] + ["Description"])
             for link, title, description in zip(site.links, site.title, site.description):
@@ -130,8 +124,7 @@ def get_url(path):
 @app.route('/api/<path>')
 def api(path):
     try:
-        url = validate_url(path)
-        site = Site(url)
+        site = Site(request.form['path'])
 
         data = jsonify(
             path=path,
@@ -162,59 +155,35 @@ def api(path):
         return data
 
     except Exception as e:
-        return print("Es ist ein Fehler aufgetreten: {0}".format(e))
+        return print("whops!: {0}".format(e))
+
 
 @app.route('/csv/<path>')
 def export_csv(path):
-    url = validate_url(path)
-    site = Site(url)
+    site = Site(path)
     try:
-        with open('seo.csv'.format(url), 'w', newline='') as csvfile:
-            seo_writer = csv.writer(csvfile, delimiter=';')
-            seo_writer.writerow(site.links)
-            seo_writer.writerow(site.title)
-            seo_writer.writerow(site.description)
-
-        f = urlopen("seo.csv")
-        with open("code2.zip", "wb") as code:
-            code.write(f.read())
+        hash_value = random.getrandbits(16)
+        file_string = str(request.form['path'])[11:-4] + str(hash_value)
+        with open('static/{0}.csv'.format(file_string), 'w', newline='') as csvfile:
+            seo_writer = csv.writer(csvfile,  delimiter=",")
+            seo_writer.writerow(["Link"] + ["Title"] + ["Description"])
+            for link, title, description in zip(site.links, site.title, site.description):
+                seo_writer.writerow([link] + [title] + [description])
 
             return "OK!"
 
     except Exception as e:
         print(e)
 
+
 @app.route('/about')
 def about():
     return render_template("about.html")
 
+
 @app.route('/thanks')
 def thanks():
     return render_template("thanks.html")
-
-
-
-def validate_url(path):
-    url = path
-    sub = tldextract.extract(url)
-
-    if url.endswith("/"):
-        url = url[:-1]
-
-    p = urlparse(url, 'http')
-
-    if p.netloc:
-        netloc = p.netloc
-        path = p.path
-    else:
-        netloc = p.path
-        path = ''
-    if not netloc.startswith('www.') and not sub.subdomain:
-        netloc = 'www.' + netloc
-
-    p = p._replace(netloc=netloc, path=path)
-    print(p.geturl())
-    return p.geturl()
 
 
 if __name__ == '__main__':

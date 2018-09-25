@@ -14,7 +14,7 @@
     <div class="statusbar">
         <div class="searchWrapper">
             <form action="{{ url_for('get_data') }}" method="post">
-                <input required type="text" v-model="path"  name="path" placeholder="http://www.yoursite.com">
+                <input required type="text" v-model="path"  name="path" placeholder="https://www.yoursite.com">
                 <button id="button" v-on:click="post" type="submit"><i class="icon icon-arrow-right"></i></button>
             </form>
         </div>

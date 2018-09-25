@@ -1238,6 +1238,15 @@ span.head_title {
     -o-transform: rotate(-90deg);
     transform: rotate(-90deg); }
 
+ul.overview {
+  text-align: center;
+  padding: 0; }
+  ul.overview li {
+    font-size: 13px;
+    list-style: none;
+    margin-bottom: 6px;
+    font-style: italic; }
+
 .fade-enter-active, .fade-leave-active {
   transition: all .3s;
   transform: scale(1); }
@@ -1385,6 +1394,11 @@ div.centerWrapper {
   div.centerWrapper p, div.centerWrapper a, div.centerWrapper span {
     color: #3E3E40;
     font-size: 13px; }
+  div.centerWrapper span.code {
+    display: inline-block;
+    background-color: #EDEEE9;
+    font-style: italic;
+    padding: 0 13px; }
 
 img.icon {
   vertical-align: sub; }

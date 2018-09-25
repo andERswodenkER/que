@@ -62,3 +62,15 @@ span.head_title {
       }
   }
 }
+
+ul.overview {
+  text-align: center;
+  padding: 0;
+
+  li {
+    font-size: 13px;
+    list-style: none;
+    margin-bottom: 6px;
+    font-style: italic;
+  }
+}

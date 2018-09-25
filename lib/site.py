@@ -1,10 +1,12 @@
 from bs4 import BeautifulSoup, Comment
 from urllib.request import urlopen
+from urllib.parse import urlparse
+import tldextract
 
 
 class Site:
     def __init__(self, path):
-        self.path = path
+        self.path = self.validate_url(path)
         self.title = ""
         self.links = ""
 
@@ -143,3 +145,26 @@ class Site:
                 self.title_errors += 1
             elif len(title) >= 60:
                 self.title_warnings += 1
+
+    def validate_url(self, path):
+        url = path
+        sub = tldextract.extract(url)
+
+        if url.endswith("/"):
+            url = url[:-1]
+
+        p = urlparse(url, 'http')
+
+        if p.netloc:
+            netloc = p.netloc
+            path = p.path
+        else:
+            netloc = p.path
+            path = ''
+        if not netloc.startswith('www.') and not sub.subdomain:
+            netloc = 'www.' + netloc
+
+        p = p._replace(netloc=netloc, path=path)
+        print(p.geturl())
+
+        return p.geturl()
