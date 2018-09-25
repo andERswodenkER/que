@@ -2,11 +2,16 @@ from bs4 import BeautifulSoup, Comment
 from urllib.request import urlopen
 from urllib.parse import urlparse
 import tldextract
+import csv
+import random
 
 
 class Site:
     def __init__(self, path):
         self.path = self.validate_url(path)
+
+        self.file_string = ""
+
         self.title = ""
         self.links = ""
 
@@ -64,6 +69,8 @@ class Site:
         self.get_comment_errors()
 
         self.get_image_errors()
+
+        self.write_csv()
 
     @staticmethod
     def sorting(unsorted_list):
@@ -146,7 +153,8 @@ class Site:
             elif len(title) >= 60:
                 self.title_warnings += 1
 
-    def validate_url(self, path):
+    @staticmethod
+    def validate_url(path):
         url = path
         sub = tldextract.extract(url)
 
@@ -168,3 +176,12 @@ class Site:
         print(p.geturl())
 
         return p.geturl()
+
+    def write_csv(self):
+        hash_value = random.getrandbits(16)
+        self.file_string = str(self.path)[11:-4] + str(hash_value)
+        with open('static/{0}.csv'.format(self.file_string), 'w', newline='') as csvfile:
+            seo_writer = csv.writer(csvfile,  delimiter=",")
+            seo_writer.writerow(["Link"] + ["Title"] + ["Description"])
+            for link, title, description in zip(self.links, self.title, self.description):
+                seo_writer.writerow([link] + [title] + [description])

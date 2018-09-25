@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="centerWrapper">
+        <p>{{ path }}</p>
+        <a href="{{ url_for('static', filename=csv_file+'.csv') }}"><i class="icon icon-download"></i> download csv</a>
+    </div>
+{% endblock %}

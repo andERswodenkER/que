@@ -1,6 +1,6 @@
 <!doctype html>
 <head>
-    <title>テスト</title>
+    <title>{{ title }} - syno</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
 </head>
@@ -14,7 +14,7 @@
     <div class="statusbar">
         <div class="searchWrapper">
             <form action="{{ url_for('get_data') }}" method="post">
-                <input required type="text" v-model="path"  name="path" placeholder="https://www.yoursite.com">
+                <input required type="text" v-model="path"  name="path" placeholder={{ path }}>
                 <button id="button" v-on:click="post" type="submit"><i class="icon icon-arrow-right"></i></button>
             </form>
         </div>

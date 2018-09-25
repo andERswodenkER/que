@@ -2,7 +2,7 @@
 {% block content %}
     <div id="result">
         <div class="path">
-            <p>{{ path }} <a class="download" href="{{ url_for('static', filename=hash+'.csv') }}"><i class="icon icon-download"></i> download csv</a></p>
+            <p>{{ path }} <a class="download" href="{{ url_for('static', filename=csv_file+'.csv') }}"><i class="icon icon-download"></i> download csv</a></p>
         </div>
         <aside class="infobar" id="infobar">
             <ul>

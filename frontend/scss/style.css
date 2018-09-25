@@ -1184,10 +1184,19 @@ h1 {
   font-size: 18px; }
 
 h2 {
+  color: #3E3E40;
   font-family: 'Roboto Condensed', sans-serif;
   margin: 12px 0 0 0;
   font-size: 18px;
   letter-spacing: 0.5px; }
+
+h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #3E3E40;
+  font-size: 16px;
+  margin-top: 13px;
+  letter-spacing: 0.5px;
+  font-weight: 300; }
 
 p {
   font-size: 15px;
@@ -1430,6 +1439,14 @@ img.icon {
     opacity: 1; } }
 [v-cloak] {
   display: none; }
+
+.mt-50 {
+  display: block;
+  margin-top: 50px !important; }
+
+.mt-25 {
+  display: block;
+  margin-top: 25px !important; }
 
 div.searchWrapper {
   margin: 0 auto;
