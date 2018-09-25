@@ -4,6 +4,7 @@ from urllib.parse import urlparse
 import tldextract
 import csv
 import random
+from tqdm import tqdm
 
 
 class Site:
@@ -79,10 +80,9 @@ class Site:
         return sorted_list
 
     def get_sites(self):
-        for sites in self.links:
+        for sites in tqdm(self.links):
             try:
                 self.sites.append(urlopen(sites))
-                print("get data from: {0}".format(sites))
             except Exception as e:
                 self.site_errors.append("{0} - {1}".format(sites, e))
 
