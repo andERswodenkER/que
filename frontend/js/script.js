@@ -32,7 +32,7 @@ var app = new Vue({
                 this.loading = false;
                 this.show = true;
             }, response => {
-                console.log("error");
+
             });
         },
     }

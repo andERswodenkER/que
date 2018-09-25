@@ -1399,14 +1399,15 @@ a.navitem {
   font-size: 13px; }
 
 div.centerWrapper {
-  font-family: 'Nanum Gothic Coding', monospace;
   display: inline-block;
   width: 100%;
   text-align: center; }
   div.centerWrapper p, div.centerWrapper a, div.centerWrapper span {
+    font-family: 'Roboto Condensed', sans-serif;
     color: #3E3E40;
     font-size: 13px; }
   div.centerWrapper span.code {
+    font-family: 'Nanum Gothic Coding', monospace;
     display: inline-block;
     background-color: #EDEEE9;
     font-style: italic;

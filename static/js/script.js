@@ -146,9 +146,7 @@ var app = new _vue2.default({
             }).then(function (response) {
                 _this.loading = false;
                 _this.show = true;
-            }, function (response) {
-                console.log("error");
-            });
+            }, function (response) {});
         }
     }
 });

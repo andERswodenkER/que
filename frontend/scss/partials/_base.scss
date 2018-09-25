@@ -1,5 +1,4 @@
 body {
-  //font-family: 'Nanum Gothic Coding', monospace;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -60,20 +59,21 @@ a.navitem {
 }
 
 div.centerWrapper {
-  font-family: 'Nanum Gothic Coding', monospace;
   display: inline-block;
   width: 100%;
   text-align: center;
   p,a,span {
+    font-family: 'Roboto Condensed', sans-serif;
     color: $primarycolor;
     font-size: 13px;
   }
   span.code {
-  display: inline-block;
-  background-color: $white;
-  font-style: italic;
-  padding: 0 13px;
-}
+    font-family: 'Nanum Gothic Coding', monospace;
+    display: inline-block;
+    background-color: $white;
+    font-style: italic;
+    padding: 0 13px;
+  }
 }
 
 img.icon {
