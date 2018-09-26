@@ -133,7 +133,8 @@ var app = new _vue2.default({
         todoOpen: false,
         commentOpen: false,
         altOpen: false,
-        errorOpen: false
+        errorOpen: false,
+        robotOpen: false
     },
     methods: {
         post: function post() {

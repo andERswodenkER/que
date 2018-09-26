@@ -6,6 +6,22 @@
         </div>
         <aside class="infobar" id="infobar">
             <ul>
+                {% if robot %}
+                    <li>
+                        <p class="warning click" v-on:click='robotOpen = !robotOpen'>
+                            <i class="icon icon-alert-triangle"></i>  some sites excluded by robots.txt
+                        </p>
+                        <transition name="fade">
+                            <div class="scrollWrapper" v-show="robotOpen">
+                                <ul class="link_list">
+                                    {% for error in robot %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </transition>
+                    </li>
+                {% endif %}
                 {% if site_errors %}
                     <li>
                         <p class="error click" v-on:click='errorOpen = !errorOpen'>

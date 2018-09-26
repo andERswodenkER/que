@@ -65,7 +65,8 @@ def get_data():
                                                  comments_counter=site.comments_counter,
                                                  todos=site.todo,
                                                  todos_counter=site.todo_counter,
-                                                 csv_file=site.file_string
+                                                 csv_file=site.file_string,
+                                                 robot=site.robot_exclude_list
                                                  )
                                  )
             scan = datetime.datetime.now()
@@ -126,7 +127,8 @@ def get_url(path):
                                                  comments_counter=site.comments_counter,
                                                  todos=site.todo,
                                                  todos_counter=site.todo_counter,
-                                                 csv_file=site.file_string
+                                                 csv_file=site.file_string,
+                                                 robot=site.robot_exclude_list
                                                  )
                                  )
             scan = datetime.datetime.now()

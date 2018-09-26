@@ -21,6 +21,7 @@ var app = new Vue({
         commentOpen: false,
         altOpen: false,
         errorOpen: false,
+        robotOpen: false,
     },
     methods: {
         post: function () {

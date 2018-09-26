@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup, Comment
 from urllib.request import urlopen
 from urllib.parse import urlparse
+import urllib.robotparser as urobot
 import tldextract
 import csv
 import random
@@ -10,11 +11,19 @@ from tqdm import tqdm
 class Site:
     def __init__(self, path):
         self.path = self.validate_url(path)
+        self.rp = urobot.RobotFileParser()
+        self.rp.set_url(path + "/robots.txt")
+        try:
+            self.rp.read()
+        except:
+            self.rp = ""
 
         self.file_string = ""
 
         self.title = ""
         self.links = ""
+
+        self.robot_exclude_list = list()
 
         self.site = urlopen(str(self.path))
         self.soup = BeautifulSoup(self.site, 'html.parser')
@@ -82,7 +91,14 @@ class Site:
     def get_sites(self):
         for sites in tqdm(self.links):
             try:
-                self.sites.append(urlopen(sites))
+                if self.rp == "":
+                    self.sites.append(urlopen(sites))
+                else:
+                    if self.rp.can_fetch("*", sites):
+                        self.sites.append(urlopen(sites))
+                    else:
+                        self.robot_exclude_list.append(sites)
+
             except Exception as e:
                 self.site_errors.append("{0} - {1}".format(sites, e))
 
