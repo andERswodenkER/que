@@ -22,21 +22,26 @@ div.about {
   width: 100%;
   text-align: center;
   color: $primarycolor;
-  font-size: 13px;
+  p, span, a {
+    font-size: 13px;
+    line-height: 22px;
+    margin: 0;
+  }
 
   div.contactCard {
     margin: 25px 0;
     span,a,p {
-      display: block;
       margin-bottom: 6px;
     }
   }
 }
 
 div.copyright {
-  font-size: 11px;
   text-align: center;
   color: $primarycolor;
+  span, a, p {
+    font-size: 11px;
+  }
 }
 
 section.status {
@@ -56,6 +61,7 @@ a.navitem {
   padding-left: 13px;
   margin-top: 13px;
   font-size: 13px;
+  letter-spacing: 0.5px;
 }
 
 div.centerWrapper {
@@ -98,4 +104,8 @@ img.icon {
 .mt-25 {
   display: block;
   margin-top: 25px !important;
+}
+
+img.anderswodenker {
+  max-width: 130px;
 }

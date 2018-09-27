@@ -2,6 +2,11 @@
 {% block content %}
     <div id="result">
         <div class="path">
+            <p>
+                <span>{{ author }}</span>
+                <br>
+                <span>{{ path }}</span> <span class="favicon"><img src="{{ favicon }}"></span>
+            </p>
             <p><a class="download" href="{{ url_for('static', filename=csv_file+'.csv') }}"><i class="icon icon-download"></i> download csv</a></p>
         </div>
         <aside class="infobar" id="infobar">
@@ -167,10 +172,5 @@
                 {% endfor %}
             </ul>
         </section>
-
-        <div class="footerbar">
-            <span>author: {{ author }}</span>
-            <span class="favicon"><img src="{{ favicon }}"></span>
-        </div>
     </div>
 {% endblock %}

@@ -1,6 +1,6 @@
 %scrollList {
   @include transition(all 5s ease);
-  font-size: 13px;
+  font-size: 12px;
   overflow: scroll;
   max-height: 120px;
   padding-right: 20px;
@@ -11,9 +11,10 @@
 }
 
 aside.infobar {
+  font-family: 'Nanum Gothic Coding', monospace;
   float: right;
-  padding: 15px 25px;
-  width: 200px;
+  padding: 20px 25px;
+  width: 30%;
   text-align: right;
   img {
     max-width: 13px;
@@ -75,9 +76,6 @@ div.footerbar {
   span {
     display: inline-block;
     margin: 0 5px;
-    &.favicon {
-      background-color: $white;
-    }
   }
   img {
     width: 13px;
@@ -88,4 +86,10 @@ div.scrollWrapper {
   margin-right: -20px;
   margin-top: 30px;
   width: 101%;
+}
+
+.favicon {
+  img {
+    vertical-align: middle;
+  }
 }

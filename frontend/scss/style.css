@@ -1216,10 +1216,10 @@ span.head_title {
   display: inline-block; }
 
 .error {
-  color: #d91e18; }
+  color: #3E3E40; }
 
 .warning {
-  color: #f39c12; }
+  color: #3E3E40; }
 
 .upper {
   text-transform: uppercase; }
@@ -1315,9 +1315,9 @@ p.path {
   margin-top: 20px; }
 
 input[type="text"] {
-  width: calc(90% - 12px);
+  width: calc(100% - 10px);
   padding: 5px;
-  border-bottom: 1px solid #3E3E40; }
+  background-color: #EDEEE9; }
 
 button {
   -webkit-transition: all 0.33s ease;
@@ -1326,14 +1326,17 @@ button {
   -ms-transition: all 0.33s ease;
   -o-transition: all 0.33s ease;
   transition: all 0.33s ease;
-  -webkit-transform: translateX(-55px);
-  -khtml-transform: translateX(-55px);
-  -moz-transform: translateX(-55px);
-  -ms-transform: translateX(-55px);
-  -o-transform: translateX(-55px);
-  transform: translateX(-55px);
+  -webkit-transform: translateX(-13);
+  -khtml-transform: translateX(-13);
+  -moz-transform: translateX(-13);
+  -ms-transform: translateX(-13);
+  -o-transform: translateX(-13);
+  transform: translateX(-13);
   cursor: pointer;
   padding: 5px;
+  position: absolute;
+  top: 0;
+  right: 0;
   width: calc(10% - 20px);
   color: #3E3E40; }
   button:hover {
@@ -1367,18 +1370,21 @@ div.about {
   display: inline-block;
   width: 100%;
   text-align: center;
-  color: #3E3E40;
-  font-size: 13px; }
+  color: #3E3E40; }
+  div.about p, div.about span, div.about a {
+    font-size: 13px;
+    line-height: 22px;
+    margin: 0; }
   div.about div.contactCard {
     margin: 25px 0; }
     div.about div.contactCard span, div.about div.contactCard a, div.about div.contactCard p {
-      display: block;
       margin-bottom: 6px; }
 
 div.copyright {
-  font-size: 11px;
   text-align: center;
   color: #3E3E40; }
+  div.copyright span, div.copyright a, div.copyright p {
+    font-size: 11px; }
 
 section.status {
   margin-top: 20px; }
@@ -1393,7 +1399,8 @@ a.navitem {
   display: inline-block;
   padding-left: 13px;
   margin-top: 13px;
-  font-size: 13px; }
+  font-size: 13px;
+  letter-spacing: 0.5px; }
 
 div.centerWrapper {
   display: inline-block;
@@ -1449,10 +1456,14 @@ img.icon {
   display: block;
   margin-top: 25px !important; }
 
+img.anderswodenker {
+  max-width: 130px; }
+
 div.searchWrapper {
   margin: 0 auto;
   display: block;
-  width: 360px; }
+  width: 360px;
+  position: relative; }
 
 div.statusbar {
   display: inline-block;
@@ -1468,10 +1479,10 @@ div.statusbar {
 
 div.logoWrapper {
   position: fixed;
-  right: 13px;
-  top: 31px; }
+  left: 13px;
+  top: 36px; }
   div.logoWrapper img {
-    max-width: 80px; }
+    max-width: 76px; }
 
 aside.infobar ul.link_list, aside.infobar ul.comment, aside.infobar ul.todo {
   -webkit-transition: all 5s ease;
@@ -1480,18 +1491,19 @@ aside.infobar ul.link_list, aside.infobar ul.comment, aside.infobar ul.todo {
   -ms-transition: all 5s ease;
   -o-transition: all 5s ease;
   transition: all 5s ease;
-  font-size: 13px;
+  font-size: 12px;
   overflow: scroll;
   max-height: 120px;
   padding-right: 20px; }
   aside.infobar ul.link_list li, aside.infobar ul.comment li, aside.infobar ul.todo li {
-    color: #d91e18;
+    color: #3E3E40;
     list-style: disc; }
 
 aside.infobar {
+  font-family: 'Nanum Gothic Coding', monospace;
   float: right;
-  padding: 15px 25px;
-  width: 200px;
+  padding: 20px 25px;
+  width: 30%;
   text-align: right; }
   aside.infobar img {
     max-width: 13px; }
@@ -1514,9 +1526,9 @@ aside.infobar {
         margin-bottom: 0; }
   aside.infobar ul.comment li {
     font-style: italic;
-    color: #f39c12; }
+    color: #3E3E40; }
   aside.infobar ul.todo li {
-    color: #d91e18; }
+    color: #3E3E40; }
 
 div.footerbar {
   position: fixed;
@@ -1531,8 +1543,6 @@ div.footerbar {
   div.footerbar span {
     display: inline-block;
     margin: 0 5px; }
-    div.footerbar span.favicon {
-      background-color: #EDEEE9; }
   div.footerbar img {
     width: 13px; }
 
@@ -1541,11 +1551,15 @@ div.scrollWrapper {
   margin-top: 30px;
   width: 101%; }
 
+.favicon img {
+  vertical-align: middle; }
+
 section.result {
   display: inline-block;
   width: 60%;
   padding: 16px 0;
-  position: relative; }
+  position: relative;
+  border-top: 1px solid #3E3E40; }
   section.result ul {
     padding: 0;
     margin: 0; }
@@ -1572,12 +1586,6 @@ div.path {
   margin: 13px 0; }
   div.path p, div.path a {
     font-size: 13px; }
-
-a.download {
-  color: #3E3E40;
-  margin-left: 13px; }
-  a.download:hover {
-    color: black; }
 
 footer {
   font-family: 'Nanum Gothic Coding', monospace;

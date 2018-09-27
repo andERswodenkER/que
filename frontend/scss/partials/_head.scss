@@ -2,6 +2,7 @@ div.searchWrapper {
   margin: 0 auto;
   display: block;
   width: 360px;
+  position: relative;
 }
 
 div.statusbar {
@@ -21,10 +22,10 @@ div.statusbar {
 
 div.logoWrapper {
   position: fixed;
-  right: 13px;
-  top: 31px;
+  left: 13px;
+  top: 36px;
 
   img {
-    max-width: 80px;
+    max-width: 76px;
   }
 }

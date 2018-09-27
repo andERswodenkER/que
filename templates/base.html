@@ -14,7 +14,7 @@
     <div class="statusbar">
         <div class="searchWrapper">
             <form action="{{ url_for('get_data') }}" method="post">
-                <input required type="text" v-model="path"  name="path" placeholder={{ path }}>
+                <input type="text" v-model="path"  name="path" placeholder={{ path }}>
                 <button id="button" v-on:click="post" type="submit"><i class="icon icon-arrow-right"></i></button>
             </form>
         </div>
@@ -40,8 +40,5 @@
         <img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
     </form>
 </footer>
-<div class="poweredWrapper">
-    powered by <img src="{{ url_for('static', filename='images/python.png') }}" class="logo">
-</div>
 <script async src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

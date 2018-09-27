@@ -1,26 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="about">
-        <p>this tool give you an overview of some website basics:</p>
-        <ul class="overview">
-            <li>title</li>
-            <li>description</li>
-            <li>alt tags for images</li>
-            <li>comments</li>
-            <li>keywords</li>
-            <li>author</li>
-            <li>favicon</li>
-            <li>todo's (if you declare it with <b>@todo</b> in your html)</li>
-        </ul>
-        <div class="contactCard mt-50">
-            <span>markus daul</span>
-            <span>hitzing 6a</span>
-            <span>37139 adelebsen</span>
-            <a href="mailto:syno@anderswodenker.de">syno@anderswodenker.de</a>
-            <a href="https://github.com/andERswodenkER/syno"><i class="icon icon-github"></i> GitHub</a> <br>
-            <span>for feature request write me an e-mail or use github</span>
+        <div class="contactCard">
+            <img src="{{ url_for('static', filename='images/anderswodenker-a.jpg') }}" class="anderswodenker">
+            <p>
+                <span>markus daul</span> <br>
+                <span>hitzing 6a</span> <br>
+                <span>37139 adelebsen, germany</span> <br>
+                <a href="mailto:syno@anderswodenker.de">syno@anderswodenker.de</a> <br>
+                <a href="https://github.com/andERswodenkER/syno"><i class="icon icon-github"></i> GitHub</a> <br>
+                <span><i>for feature request write me an e-mail or use github</i></span>
+            </p>
         </div>
-        <span><i class="icon icon-heart"></i> this robot respects robots.txt :)</span>
+        <span><i class="icon icon-heart"></i> this robot respects your robots.txt</span>
         <div class="copyright mt-50">
             <span>
                 MIT License

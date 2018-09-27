@@ -12,10 +12,10 @@ class Site:
     def __init__(self, path):
         self.path = self.validate_url(path)
         self.rp = urobot.RobotFileParser()
-        self.rp.set_url(path + "/robots.txt")
+        self.rp.set_url(self.path + "/robots.txt")
         try:
             self.rp.read()
-        except:
+        except Exception:
             self.rp = ""
 
         self.file_string = ""
