@@ -5,7 +5,8 @@
             <p>
                 <span>{{ author }}</span>
                 <br>
-                <span>{{ path }}</span> <span class="favicon"><img src="{{ favicon }}"></span>
+                <span>{{ path }}</span> <span class="favicon"><img src="{{ favicon }}"></span> <br>
+                <span> {{ site_counter }} sites</span>
             </p>
             <p><a class="download" href="{{ url_for('static', filename=csv_file+'.csv') }}"><i class="icon icon-download"></i> download csv</a></p>
         </div>
@@ -79,6 +80,15 @@
                         </p>
                     </li>
                 {% endif %}
+            {% if headline_warnings %}
+                <li>
+                <p class="warning">
+                    <i class="icon icon-alert-triangle"></i>
+                    {{ headline_warnings }}
+                    headline warnings
+                </p>
+                </li>
+            {% endif %}
                 <!-- IMAGE ERROR -->
                 {% if alt_errors %}
                     <li>
@@ -147,7 +157,7 @@
         <section class="result">
             <ul>
                 {% for title, title_length, description, description_length, link in meta %}
-                    <li>
+                    <li class="resultItem">
                         <a target="_blank" href="{{ link }}">{{ link }}</a>
                         <h2>{{ title }}</h2>
                         <p>{{ description }}</p>
@@ -166,6 +176,27 @@
                                 <p class="warning"><i class="icon icon-alert-triangle"></i> description is maybe to short... (<span>length: {{ description_length }}</span>)</p>
                             {% elif description_length >= 160 %}
                                 <p class="warning"><i class="icon icon-alert-triangle"></i> description is maybe to long... (<span>length: {{ description_length }}</span>)</p>
+                            {% endif %}
+                        </div>
+                        <div class="headlineList">
+                            {% if h1_dict %}
+                                <p class="info">H1</p>
+                                <ul class="headlines">
+                                    {% for h1 in h1_dict[title] %}
+                                        <li>{{ h1 }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% if headline_warning_dict[title] %}
+                                    <p class="warning"><i class="icon icon-alert-triangle"></i> no headline found!</p>
+                                {% endif %}
+                            {% endif %}
+                            {% if h2_dict %}
+                                <p class="info">H2</p>
+                                <ul class="headlines">
+                                    {% for h2 in h2_dict[title] %}
+                                        <li>{{ h2 }}</li>
+                                    {% endfor %}
+                                </ul>
                             {% endif %}
                         </div>
                     </li>

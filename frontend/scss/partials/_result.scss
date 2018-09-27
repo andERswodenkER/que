@@ -16,6 +16,9 @@ section.result {
       p {
         margin: 5px 0 0 0;
       }
+      &.resultItem {
+        border-bottom: 1px solid $primarycolor;
+      }
     }
   }
 
@@ -38,5 +41,19 @@ div.path {
   margin: 13px 0;
   p, a {
     font-size: 13px;
+  }
+}
+
+div.headlineList {
+  font-family: 'Nanum Gothic Coding', monospace;
+  margin-top: 13px;
+  font-size: 13px;
+  ul {
+    max-width: 50%;
+    li {
+      font-size: 13px;
+      margin: 8px 0;
+      padding: 0;
+    }
   }
 }

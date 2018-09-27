@@ -12,9 +12,10 @@
 
 aside.infobar {
   font-family: 'Nanum Gothic Coding', monospace;
-  float: right;
+  position: fixed;
+  top: 22vh;
+  right: 50px;
   padding: 20px 25px;
-  width: 30%;
   text-align: right;
   img {
     max-width: 13px;

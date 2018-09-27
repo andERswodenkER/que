@@ -29,6 +29,7 @@ class Site:
         self.soup = BeautifulSoup(self.site, 'html.parser')
 
         self.sites = list()
+        self.sites_counter = 0
         self.soups = list()
 
         self.title = list()
@@ -39,6 +40,12 @@ class Site:
 
         self.title_errors = 0
         self.description_errors = 0
+
+        self.headline_h1 = dict()
+        self.headline_h2 = dict()
+
+        self.headline_h1_warning = 0
+        self.headline_h1_warning_dict = dict()
 
         self.title_warnings = 0
         self.description_warnings = 0
@@ -71,6 +78,8 @@ class Site:
         self.get_sites()
 
         self.get_meta_data()
+
+        self.get_headlines()
 
         self.get_title_length()
 
@@ -106,6 +115,7 @@ class Site:
             self.soups.append(BeautifulSoup(site, 'html.parser'))
 
         self.site_errors_counter = len(self.site_errors)
+        self.sites_counter = len(self.sites)
 
     def get_links(self):
         try:
@@ -131,6 +141,26 @@ class Site:
 
             except Exception as e:
                 pass
+
+    def get_headlines(self):
+        for tags in self.soups:
+            for h1 in tags.find_all('h1'):
+                if tags.title.string in self.headline_h1:
+                    self.headline_h1[tags.title.string].append(h1.getText())
+                else:
+                    self.headline_h1[tags.title.string] = [h1.getText()]
+
+            if not tags.find('h1'):
+                self.headline_h1_warning += 1
+                self.headline_h1_warning_dict[tags.title.string] = True
+            else:
+                self.headline_h1_warning_dict[tags.title.string] = False
+
+            for h2 in tags.find_all('h2'):
+                if tags.title.string in self.headline_h2:
+                    self.headline_h2[tags.title.string].append(h2.getText())
+                else:
+                    self.headline_h2[tags.title.string] = [h2.getText()]
 
     def get_image_errors(self):
         for errors in self.soups:

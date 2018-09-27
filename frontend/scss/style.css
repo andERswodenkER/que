@@ -1216,10 +1216,12 @@ span.head_title {
   display: inline-block; }
 
 .error {
-  color: #3E3E40; }
+  color: #3E3E40;
+  font-family: 'Nanum Gothic Coding', monospace; }
 
 .warning {
-  color: #3E3E40; }
+  color: #3E3E40;
+  font-family: 'Nanum Gothic Coding', monospace; }
 
 .upper {
   text-transform: uppercase; }
@@ -1315,6 +1317,7 @@ p.path {
   margin-top: 20px; }
 
 input[type="text"] {
+  color: #3E3E40;
   width: calc(100% - 10px);
   padding: 5px;
   background-color: #EDEEE9; }
@@ -1501,9 +1504,10 @@ aside.infobar ul.link_list, aside.infobar ul.comment, aside.infobar ul.todo {
 
 aside.infobar {
   font-family: 'Nanum Gothic Coding', monospace;
-  float: right;
+  position: fixed;
+  top: 22vh;
+  right: 50px;
   padding: 20px 25px;
-  width: 30%;
   text-align: right; }
   aside.infobar img {
     max-width: 13px; }
@@ -1571,6 +1575,8 @@ section.result {
       margin-bottom: 20px; }
       section.result ul li p {
         margin: 5px 0 0 0; }
+      section.result ul li.resultItem {
+        border-bottom: 1px solid #3E3E40; }
   section.result div.statusWrapper {
     margin-top: 16px; }
     section.result div.statusWrapper p, section.result div.statusWrapper span {
@@ -1586,6 +1592,17 @@ div.path {
   margin: 13px 0; }
   div.path p, div.path a {
     font-size: 13px; }
+
+div.headlineList {
+  font-family: 'Nanum Gothic Coding', monospace;
+  margin-top: 13px;
+  font-size: 13px; }
+  div.headlineList ul {
+    max-width: 50%; }
+    div.headlineList ul li {
+      font-size: 13px;
+      margin: 8px 0;
+      padding: 0; }
 
 footer {
   font-family: 'Nanum Gothic Coding', monospace;

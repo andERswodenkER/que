@@ -70,7 +70,8 @@ def crawl_data(path, title, option):
                             site.title_length,
                             site.description,
                             site.description_length,
-                            site.links)
+                            site.links,
+                            )
             if not site.title_length == [] and not site.description_length == []:
                 if not option == "csv":
                     resp = make_response(render_template('result.html',
@@ -79,6 +80,7 @@ def crawl_data(path, title, option):
                                                          meta=meta_data,
                                                          site_errors=site.site_errors,
                                                          site_errors_counter=site.site_errors_counter,
+                                                         site_counter=site.sites_counter,
                                                          t_warnings=site.title_warnings,
                                                          t_error=site.title_errors,
                                                          d_warnings=site.description_warnings,
@@ -95,7 +97,11 @@ def crawl_data(path, title, option):
                                                          todos=site.todo,
                                                          todos_counter=site.todo_counter,
                                                          csv_file=site.file_string,
-                                                         robot=site.robot_exclude_list
+                                                         robot=site.robot_exclude_list,
+                                                         h1_dict=site.headline_h1,
+                                                         h2_dict=site.headline_h2,
+                                                         headline_warnings=site.headline_h1_warning,
+                                                         headline_warning_dict=site.headline_h1_warning_dict
                                                          )
                                          )
                     scan = datetime.datetime.now()
