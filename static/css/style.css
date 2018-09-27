@@ -1324,6 +1324,8 @@ input[type="text"] {
   width: calc(100% - 10px);
   padding: 5px;
   background-color: #EDEEE9; }
+  input[type="text"]:focus {
+    outline: none; }
 
 button {
   -webkit-transition: all 0.33s ease;
@@ -1634,9 +1636,7 @@ div.poweredWrapper {
     vertical-align: middle; }
 
 input.paypal {
-  border-bottom: 1px solid #3E3E40;
-  padding-bottom: 3px;
-  color: #3E3E40; }
+  max-width: 190px; }
 
 
 /*# sourceMappingURL=../qs/script.js.map*/

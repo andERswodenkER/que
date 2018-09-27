@@ -3,6 +3,9 @@
     width: calc(100% - 10px);
     padding: 5px;
     background-color: $white;
+    &:focus {
+      outline: none;
+    }
   }
 
   button {
