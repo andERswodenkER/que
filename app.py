@@ -52,7 +52,7 @@ def crawl_data(path, title, option):
                 now_time = datetime.datetime.now()
                 past_time = datetime.datetime.strptime(scanned, "%Y-%m-%d %H:%M:%S.%f")
                 seconds = (now_time - past_time).total_seconds()
-            if not scanned or seconds > 1:
+            if not scanned or seconds > 30:
                 site = Site(path)
             else:
                 return render_template("wait.html", seconds=str(seconds)[:-5], path=path)
