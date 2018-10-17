@@ -80,15 +80,15 @@
                         </p>
                     </li>
                 {% endif %}
-            {% if headline_warnings %}
-                <li>
-                <p class="warning">
-                    <i class="icon icon-alert-triangle"></i>
-                    {{ headline_warnings }}
-                    headline warnings
-                </p>
-                </li>
-            {% endif %}
+                {% if headline_warnings %}
+                    <li>
+                        <p class="warning">
+                            <i class="icon icon-alert-triangle"></i>
+                            {{ headline_warnings }}
+                            headline warnings
+                        </p>
+                    </li>
+                {% endif %}
                 <!-- IMAGE ERROR -->
                 {% if alt_errors %}
                     <li>
@@ -116,6 +116,23 @@
                             <div class="scrollWrapper" v-show="todoOpen">
                                 <ul class="todo">
                                     {% for todo in todos %}
+                                        <li>{{ todo }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </transition>
+                    </li>
+                {% endif %}
+
+                {% if image_todo %}
+                    <li>
+                        <p class="error click" v-on:click='imagetodoOpen = !imagetodoOpen'>
+                            <i class="icon icon-x-circle"></i> {{ image_todo_counter }} image todos found
+                        </p>
+                        <transition name="fade">
+                            <div class="scrollWrapper" v-show="imagetodoOpen">
+                                <ul class="todo">
+                                    {% for todo in image_todo %}
                                         <li>{{ todo }}</li>
                                     {% endfor %}
                                 </ul>

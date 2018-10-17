@@ -52,6 +52,7 @@ def crawl_data(path, title, option):
                 now_time = datetime.datetime.now()
                 past_time = datetime.datetime.strptime(scanned, "%Y-%m-%d %H:%M:%S.%f")
                 seconds = (now_time - past_time).total_seconds()
+
             if not scanned or seconds > 30:
                 site = Site(path)
             else:
@@ -96,6 +97,8 @@ def crawl_data(path, title, option):
                                                          comments_counter=site.comments_counter,
                                                          todos=site.todo,
                                                          todos_counter=site.todo_counter,
+                                                         image_todo=site.image_todo,
+                                                         image_todo_counter=site.image_todo_counter,
                                                          csv_file=site.file_string,
                                                          robot=site.robot_exclude_list,
                                                          h1_dict=site.headline_h1,

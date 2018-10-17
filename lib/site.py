@@ -6,6 +6,7 @@ import tldextract
 import csv
 import random
 from tqdm import tqdm
+from socket import timeout
 
 
 class Site:
@@ -20,7 +21,6 @@ class Site:
 
         self.file_string = ""
 
-        self.title = ""
         self.links = ""
 
         self.robot_exclude_list = list()
@@ -71,6 +71,9 @@ class Site:
         self.todo = list()
         self.todo_counter = 0
 
+        self.image_todo = list()
+        self.image_todo_counter = 0
+
         self.links_unsorted = list()
 
         self.get_links()
@@ -101,10 +104,16 @@ class Site:
         for sites in tqdm(self.links):
             try:
                 if self.rp == "":
-                    self.sites.append(urlopen(sites))
+                    try:
+                        self.sites.append(urlopen(sites))
+                    except:
+                        pass
                 else:
                     if self.rp.can_fetch("*", sites):
-                        self.sites.append(urlopen(sites))
+                        try:
+                            self.sites.append(urlopen(sites, timeout=0.5))
+                        except timeout:
+                            print("to long!")
                     else:
                         self.robot_exclude_list.append(sites)
 
@@ -166,9 +175,12 @@ class Site:
         for errors in self.soups:
             for img in errors.find_all('img', alt=False):
                 self.image_alt_error_links_unsorted.append(self.path + img['src'])
+            for img in errors.find_all("img", alt="@todo"):
+                self.image_todo.append(self.path + img['src'])
 
         self.image_alt_error_links = self.sorting(self.image_alt_error_links_unsorted)
         self.image_alt_error_counter = len(self.image_alt_error_links)
+        self.image_todo_counter = len(self.image_todo)
 
     def get_comment_errors(self):
         for errors in self.soups:

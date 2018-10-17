@@ -134,7 +134,8 @@ var app = new _vue2.default({
         commentOpen: false,
         altOpen: false,
         errorOpen: false,
-        robotOpen: false
+        robotOpen: false,
+        imagetodoOpen: false
     },
     methods: {
         post: function post() {

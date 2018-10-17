@@ -22,6 +22,7 @@ var app = new Vue({
         altOpen: false,
         errorOpen: false,
         robotOpen: false,
+        imagetodoOpen: false,
     },
     methods: {
         post: function () {
