@@ -16,6 +16,7 @@ class Site:
         self.rp.set_url(self.path + "/robots.txt")
         try:
             self.rp.read()
+
         except Exception:
             self.rp = ""
 
@@ -111,7 +112,7 @@ class Site:
                 else:
                     if self.rp.can_fetch("*", sites):
                         try:
-                            self.sites.append(urlopen(sites, timeout=0.5))
+                            self.sites.append(urlopen(sites))
                         except timeout:
                             print("to long!")
                     else:
