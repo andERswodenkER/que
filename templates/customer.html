@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    {% for title in titles %}
+        {{ title }}
+        <ul>
+            {% for todo in customer_todo[title] %}
+                <li>{{ todo }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}

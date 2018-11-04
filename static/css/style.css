@@ -1514,7 +1514,7 @@ aside.infobar ul.link_list, aside.infobar ul.comment, aside.infobar ul.todo {
 
 aside.infobar {
   font-family: 'Nanum Gothic Coding', monospace;
-  position: fixed;
+  position: absolute;
   top: 22vh;
   right: 50px;
   padding: 20px 25px;

@@ -29,6 +29,11 @@ def export_csv(path):
     return crawl_data(path, "csv", "csv")
 
 
+@app.route('/customer/<path>')
+def customer(path):
+    return crawl_data(path, "customer", "customer")
+
+
 @app.route('/about')
 def about():
     return render_template("about.html", title="about", path="http://www.yoursite.com")
@@ -53,7 +58,7 @@ def crawl_data(path, title, option):
                 past_time = datetime.datetime.strptime(scanned, "%Y-%m-%d %H:%M:%S.%f")
                 seconds = (now_time - past_time).total_seconds()
 
-            if not scanned or seconds > 30:
+            if not scanned or seconds > 1:
                 site = Site(path)
             else:
                 return render_template("wait.html", seconds=str(seconds)[:-5], path=path)
@@ -74,7 +79,7 @@ def crawl_data(path, title, option):
                             site.links,
                             )
             if not site.title_length == [] and not site.description_length == []:
-                if not option == "csv":
+                if option == "post":
                     resp = make_response(render_template('result.html',
                                                          title=title,
                                                          path=path,
@@ -104,7 +109,19 @@ def crawl_data(path, title, option):
                                                          h1_dict=site.headline_h1,
                                                          h2_dict=site.headline_h2,
                                                          headline_warnings=site.headline_h1_warning,
-                                                         headline_warning_dict=site.headline_h1_warning_dict
+                                                         headline_warning_dict=site.headline_h1_warning_dict,
+                                                         )
+                                         )
+                    scan = datetime.datetime.now()
+                    resp.set_cookie('scanning', str(scan))
+                    return resp
+                elif option == "customer":
+                    print(site.customer_todo)
+                    resp = make_response(render_template('customer.html',
+                                                         title="customer",
+                                                         path=path,
+                                                         customer_todo=site.customer_todo,
+                                                         titles=site.title
                                                          )
                                          )
                     scan = datetime.datetime.now()

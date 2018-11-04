@@ -77,6 +77,9 @@ class Site:
 
         self.links_unsorted = list()
 
+        self.customer_todo_list = list()
+        self.customer_todo = dict()
+
         self.get_links()
 
         self.get_sites()
@@ -112,7 +115,7 @@ class Site:
                 else:
                     if self.rp.can_fetch("*", sites):
                         try:
-                            self.sites.append(urlopen(sites))
+                            self.sites.append(urlopen(sites, timeout=20))
                         except timeout:
                             print("to long!")
                     else:
@@ -188,6 +191,11 @@ class Site:
             for comments in errors.find_all(string=lambda text: isinstance(text, Comment)):
                 if "@todo" in str(comments):
                     self.todo.append(comments[6:])
+                elif "@customer" in str(comments):
+                    if errors.title.string in self.customer_todo:
+                        self.customer_todo[errors.title.string].append(comments[11:])
+                    else:
+                        self.customer_todo[errors.title.string] = [comments[11:]]
                 else:
                     self.comments_unsorted.append(comments)
         self.comments = self.sorting(self.comments_unsorted)
