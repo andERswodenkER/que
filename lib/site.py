@@ -119,6 +119,7 @@ class Site:
                         except timeout:
                             print("to long!")
                     else:
+                        print("exclude page from syno")
                         self.robot_exclude_list.append(sites)
 
             except Exception as e:
